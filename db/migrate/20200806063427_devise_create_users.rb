@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Rememberable
       t.datetime :remember_created_at
 
-# ここから追記
+# ここから追記しました
       t.string :nickname, null: false
       t.string :user_image
       t.text :profile
@@ -27,7 +27,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
-# ここから追記
+# ここから追記しました
     add_index :users, :nickname,             unique: true
 
   end
