@@ -2,7 +2,7 @@
 
 # db設計
 
-## userテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -10,19 +10,19 @@
 |email|string|null: false,unique: true|
 |encrypted_password|string|null: false|
 |user_image|string|
-|introduction|text| 
+|profile|text| 
 |family_name|string|null: false|
 |first_name|string|null: false|
-|family_name_kana|string    null: false|
-|first_name_kana|string null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |birth_day|date|null: false|
 
 ### Association
 - has_many :products dependent: :destroy        
-- belongs_to :delivery_destination dependent: :destroy      
-- belongs_to :card dependent: :destroy      
+- has_one :delivery_destination dependent: :destroy      
+- has_one :credit_card dependent: :destroy      
 
-## delivery_destinationテーブル
+## delivery_destinationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -31,17 +31,17 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kane|string|null: false|
-|post_code|integer(7)|null: false|
+|post_code|integer|null: false,length: { is: 7 } |
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|building_name|string|  
+|building_name|string| 
 |phone_number|integer|null: false|
 
 ### Association
 - belongs_to :user      
 
-## delivery_destinationテーブル
+## credit_cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -54,7 +54,7 @@
 ### Association
 - belongs_to :user  
 
-## productテーブルテーブル
+## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -65,7 +65,7 @@
 |size|string|null: false|
 |shipping_cost|string|null: false|
 |shipping_days|string|null: false|
-|prefecture_id|string|null: false|
+|prefecture|string|null: false|
 |trading_status|enum|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
@@ -73,18 +73,11 @@
 
 ### Association
 - belongs_to :user
+- has_many :product_imgs
+- belongs_to :category
+- belongs_to :brand
 
-## product_imgテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null: false|
-|product_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :product
-
-## categoryテーブル
+## product_imgsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -94,11 +87,21 @@
 ### Association
 - belongs_to :product
 
-## brandテーブル
+## categorysテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
+
+### Association
+- has_many :products
+
+## brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- belongs_to :product
+- has_many :products
