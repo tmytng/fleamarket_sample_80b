@@ -8,10 +8,13 @@ class User < ApplicationRecord
 #   has_one :delivery_destination, dependent: :destroy
 #   has_one :credit_card, dependent: :destroy
 
-  validates :nickname, presence: true
-  validates :family_name, presence: true
-  validates :first_name, presence: true
-  validates :family_name_kana, presence: true
-  validates :first_name_kana, presence: true
+  validates :nickname, presence: true, length: { maximum: 15 }
+  validates :family_name, presence: true, length: { maximum: 15 }
+  validates :first_name, presence: true, length: { maximum: 15 }
+  validates :family_name_kana, presence: true, length: { maximum: 15 }
+  validates :first_name_kana, presence: true, length: { maximum: 15 }
   validates :birth_day, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+  validates :email, presence: true
 end
