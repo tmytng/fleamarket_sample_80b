@@ -5,7 +5,7 @@
  * http://yuilibrary.com/license/
  */
 
- html {
+html {
   color: #000;
   background: #FFF
 }
@@ -76,6 +76,9 @@ legend {
 #yui3-css-stamp.cssreset {
   display: none
 }
+
+// ここまでデフォルトで入っていたリセットCSS記述
+// ===================================================================================
 
 
 .productList:hover {
@@ -804,7 +807,7 @@ img {
 .main .mainVisual {
   width: 100%;
   height: 560px;
-  background-image: url(/assets/bg-mainVisual-pict_pc-a1a4be0d864c29338b03d163957f9fd26b20f7c1fa0d05c17b603ec54d249ebe.jpg);
+  background-image: url("pict/bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -934,7 +937,7 @@ img {
 }
 
 .main .topMiddleDl {
-  background-image: url(/assets/bg-topMiddleDl-pict-5042a3aa7eef6dd93330080028e3a781daf47c390c00a4fb5d7e7b06caae68c9.jpg);
+  background-image: url("pict/bg-topMiddleDl-pict.jpg");
   background-position: bottom right;
   height: 400px;
   background-size: cover;
@@ -1054,7 +1057,7 @@ img {
 }
 
 .appBanner {
-  background-image: url(/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
+  background-image: url("pict/bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
