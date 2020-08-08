@@ -1,0 +1,10 @@
+.header {
+  margin: 0px;
+
+  &__Inner {
+    padding: 0px;
+    &__main {
+      font-size: large;
+    }
+  }
+}
