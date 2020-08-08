@@ -192,27 +192,22 @@ img {
 
 // 鈴木さん、以下からお願いします！
 
-.main .mainVisual .picture {
-  position: absolute;
-  top: 0;
-  right: 210px
+
+.topIntroduction {
+  padding: 60px 20px;
 }
 
-.main .topIntroduction {
-  padding: 60px 20px
-}
-
-.main .topIntroduction .subtitle {
+.subtitle {
   text-align: center;
   font-size: 26px;
   line-height: 1.4;
   font-weight: bold;
   margin-bottom: 25px;
   padding-bottom: 15px;
-  position: relative
+  position: relative;
 }
 
-.main .topIntroduction .subtitle::after {
+.subtitle::after {
   content: "";
   width: 70px;
   height: 4px;
@@ -220,32 +215,47 @@ img {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
-.main .topIntroduction .lists {
+.lists {
   text-align: center;
   display: flex;
   max-width: 1020px;
   width: 100%;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
-.main .topIntroduction .lists .list {
+.list {
   width: 30%;
   margin: 16px 5% 0 0;
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
+  &__pict {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  &__text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 50px;
+    margin: 0 0 0 2px;
+  }
+  &__description {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 16px 0 0;
+  }
+  &__list {
+    &--last {
+      margin: 16px 0 0;
+    }
+  }
 }
 
-.main .topIntroduction .lists .list .list__pict {
-  position: relative;
-  margin-bottom: 20px
-}
-
-.main .topIntroduction .lists .list .list__pict .number {
+.number {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -256,28 +266,11 @@ img {
   margin: 0 5px 0 0;
   padding: 10px 20px;
   background-color: #3CCACE;
-  color: #fff
+  color: #fff;
 }
 
-.main .topIntroduction .lists .list__text {
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 50px;
-  margin: 0 0 0 2px
-}
-
-.main .topIntroduction .lists .list__text span {
-  color: #3CCACE
-}
-
-.main .topIntroduction .lists .list__description {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 16px 0 0
-}
-
-.main .topIntroduction .lists .list--last {
-  margin: 16px 0 0
+span {
+  color: #3CCACE;
 }
 
 .productList:hover {
@@ -364,60 +357,61 @@ img {
   display: inline-block
 }
 
-.main .topMiddleDl {
+// ここから編集
+
+.topMiddleDl {
   background-image: url("pict/bg-topMiddleDl-pict.jpg");
   background-position: bottom right;
   height: 400px;
   background-size: cover;
   display: flex;
-  align-items: center
+  align-items: center;
+  &__inner {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
-.main .topMiddleDl__inner {
-  color: #fff;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  text-align: left;
-  max-width: 1040px;
-  width: 100%;
-  margin: 0 auto
-}
 
-.main .topMiddleDl__inner .subtitle {
+
+.subtitle2 {
   font-size: 27px;
   font-weight: bold;
-  line-height: 1.4
+  line-height: 1.4;
 }
 
-.main .topMiddleDl__inner .text {
+.text {
   font-size: 18px;
   margin: 20px 0 30px;
-  line-height: 1.5
+  line-height: 1.5;
 }
 
-.main .topMiddleDl__inner .btn {
-  display: flex
+.btn {
+  display: flex;
+  &--a {
+    margin-right: 10px;
+  }
 }
 
-.main .topMiddleDl__inner .btn a {
-  margin-right: 10px
-}
-
-.main .topKeyFeatures {
+.topKeyFeatures {
   padding: 60px 100px;
-  background-color: #fff
+  background-color: #fff;
 }
 
-.main .topKeyFeatures .head {
+.head {
   font-size: 27px;
   text-align: center;
   margin: 0 0 40px;
   font-weight: bold;
   margin-bottom: 25px;
   padding-bottom: 15px;
-  position: relative
+  position: relative;
 }
-
-.main .topKeyFeatures .head::after {
+.head::after {
   content: "";
   width: 70px;
   height: 4px;
@@ -425,36 +419,36 @@ img {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
-.main .topKeyFeatures .items {
+
+.items {
   max-width: calc(1040px + 20px);
   width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
-.main .topKeyFeatures .items .item {
+.item {
   display: flex;
   flex-direction: column;
   width: calc(1 / 3 * 100%);
   text-align: center;
-  padding: 0 20px
+  padding: 0 20px;
+  &__img {
+    width: 70%;
+    margin: 0 auto;
+    line-height: 120px;
+  }
+  &__subtitle {
+    margin: 38px 0 10px;
+    font-size: 19px;
+    font-weight: bold;
+  }
 }
 
-.main .topKeyFeatures .items .item__img {
-  width: 70%;
-  margin: 0 auto;
-  line-height: 120px
-}
-
-.main .topKeyFeatures .items .item__subtitle {
-  margin: 38px 0 10px;
-  font-size: 19px;
-  font-weight: bold
-}
 
 .main .topKeyFeatures .items .item__detail {
   margin: 0 0 40px;
