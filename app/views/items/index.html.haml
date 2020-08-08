@@ -1,6 +1,6 @@
-.header
-  .header__inner
-    .header__Inner__main
+%header.pcHeader
+  .headerInner
+    .mainHeader
       %h1.icon
         %a{:href => "#"}
           = image_tag 'logo/logo.png', alt: 'ロゴ'
@@ -10,7 +10,7 @@
         -#   = f.text_field :name, class:'#', :placeholder => "メールアドレス", :type => "email", :value => ""
         -#   = f.submit "検索する"
             .searchBox__icon
-              = image_tag 'icon/icon-search 1.png', alt: '検索'
+              = image_tag 'icon/icon-search1.png', alt: '検索'
       %ul.resultLists
     .nav
       %ul.listsLeft
