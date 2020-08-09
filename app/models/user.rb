@@ -7,8 +7,6 @@ class User < ApplicationRecord
 #   has_many :products, dependent: :destroy
   has_one :delivery_destination, dependent: :destroy
 #   has_one :credit_card, dependent: :destroy
-# 複数モデルのデータ送信↓
-  # accepts_nested_attributes_for :delivery_destinations
 
   validates :nickname, presence: true, length: { maximum: 15 }
   validates :family_name, presence: true, length: { maximum: 15 }
