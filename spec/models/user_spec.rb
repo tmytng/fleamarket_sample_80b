@@ -50,7 +50,7 @@ describe User do
       expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
     end
 
-    it "パスワードは確認用と含めて2回入しないと登録できない" do
+    it "パスワードは確認用と含めて2回入力しないと登録できない" do
       user = build(:user, password_confirmation: nil)
       user.valid?
       expect(user.errors[:password_confirmation]).to include("can't be blank")
