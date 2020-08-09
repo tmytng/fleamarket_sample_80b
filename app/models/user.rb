@@ -9,13 +9,6 @@ class User < ApplicationRecord
 #   has_one :credit_card, dependent: :destroy
 
 # バリデーションの追加
-  validates :nickname, presence: true, length: { maximum: 15 }
-  validates :family_name, presence: true, length: { maximum: 15 }
-  validates :first_name, presence: true, length: { maximum: 15 }
-  validates :family_name_kana, presence: true, length: { maximum: 15 }
-  validates :first_name_kana, presence: true, length: { maximum: 15 }
-  validates :birth_day, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
-  validates :email, presence: true
+  validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, :password, :password_confirmation, :email, presence: true
+  validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, length: { maximum: 15 }
 end
