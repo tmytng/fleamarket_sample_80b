@@ -1,5 +1,7 @@
 class DeliveryDestination < ApplicationRecord
-  belong_to :user
+  belongs_to :user
+
+  VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
 
   validates :user_id, presence: true
   validates :family_name, presence: true
@@ -10,6 +12,6 @@ class DeliveryDestination < ApplicationRecord
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :address, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, format: { with: VALID_PHONE_REGEX, message: 'は有効でありません。'}
   
 end
