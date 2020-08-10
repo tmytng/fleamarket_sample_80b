@@ -68,3 +68,9 @@ end
 
 gem 'devise'
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem 'ancestry'
+gem 'jp_prefecture'
+gem 'payjp'
+gem 'jquery-rails'
+gem 'carrierwave'
+gem 'mini_magick'
