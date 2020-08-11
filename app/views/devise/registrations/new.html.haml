@@ -16,41 +16,48 @@
         .From-box__title
           %h2 新規会員登録
         .From-box__field
-          %p ニックネーム
+          ニックネーム
+          %span{class: "require"} 必須
           = f.text_field :nickname, class: 'form', placeholder: '例：フリママン'
         .From-box__field
-          %p メールアドレス
+          メールアドレス
+          %span{class: "require"} 必須
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form', placeholder: '例：◯◯◯◯◯◯@◯◯◯◯◯◯'
         .From-box__field
-          %p パスワード
+          パスワード
+          %span{class: "require"} 必須
           - if @minimum_password_length
-            (#{@minimum_password_length} characters minimum)
             = f.password_field :password, autocomplete: "new-password", class: 'form', placeholder: '7文字以上'
         .From-box__field
-          %p パスワード（確認用）
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form', placeholder: '例：上記と同じパスワードを入力して下さい'
+          パスワード(確認用)
+          %span{class: "require"} 必須
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form', placeholder: '上記と同じパスワードを入力して下さい'
         .From-box__field
-          %p アイコン画像
+          アイコン画像
           = f.file_field :user_image, class: 'form'
         .From-box__field
-          %p 自己紹介
+          自己紹介
+          %span{class: "require"} 必須
           = f.text_field :profile, class: 'form', placeholder: '例：こんにちは！'
-        .From-box__field--name
-          .family_name
-            %p 苗字
-            = f.text_field :family_name, class: 'form', placeholder: '例：山田'
-          .first_name
-            %p 名前
-            = f.text_field :first_name, class: 'form', placeholder: '例：太郎'
-        .From-box__field--kana
-          .family_name_kana
-            %p フリガナ（苗字）
-            = f.text_field :family_name_kana, class: 'form', placeholder: '例：ヤマダ'
-          .first_name_kana
-            %p フリガナ（名前）
-            = f.text_field :first_name_kana, class: 'form', placeholder: '例：タロウ'
         .From-box__field
-          %p 生年月日
+          お名前(全角)
+          %span{class: "require"} 必須
+          .name-box
+            .family_name
+              = f.text_field :family_name, class: 'form', placeholder: '例：山田'
+            .first_name
+              = f.text_field :first_name, class: 'form', placeholder: '例：太郎'
+        .From-box__field
+          お名前カナ(全角)
+          %span{class: "require"} 必須
+          .kana-box
+            .family_name_kana
+              = f.text_field :family_name_kana, class: 'form', placeholder: '例：ヤマダ'
+            .first_name_kana
+              = f.text_field :first_name_kana, class: 'form', placeholder: '例：タロウ'
+        .From-box__field
+          生年月日
+          %span{class: "require"} 必須
           = f.text_field :birth_day, class: 'form', placeholder: '例：2020-01-01 (-で区切って入力)'
         .From-box__btn
           = f.submit "Sign up",value: '登録', class: 'btn'
