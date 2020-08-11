@@ -28,7 +28,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :user_image, :profile, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day)
-    # 複数テーブルの情報を一つのフォームから送る時↓
-    # params.require(:user).permit(:nickname, :user_image, :profile, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, delivery_destination_attributes:[:post_code, :prefecture, :city, :address, :building_name, :phone_number])
   end
+
 end
