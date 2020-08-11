@@ -1,3 +1,320 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
-= link_to "ログアウト", destroy_user_session_path, method: :delete
+%header.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.icon
+        = link_to "#" do
+          = image_tag 'logo/logo.png', alt: 'ロゴ'
+      .searchBox
+        -# = form_with model: @items do |f|
+        -#   = f.hidden_field :カラム名, value: "✓"
+        -#   = f.text_field :name, class:'#', :placeholder => "メールアドレス", :type => "email", :value => ""
+        -#   = f.submit "検索する"
+            .searchBox__icon
+              = image_tag 'icon/icon-search1.png', alt: '検索'
+      %ul.resultLists
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__item.listsLeft__item--first
+          = link_to "全ての商品一覧", "#", class: "categoryName"
+      -#     .tree.displayNone
+      -#       %ul.categoryTree
+      -#         %li.categoryTree--item
+      -#           %a#1{:href => "#"} レディース
+      -#         %li.categoryTree--item
+      -#           %a#2{:href => "#"} メンズ
+      -#         %li.categoryTree--item
+      -#           %a#3{:href => "#"} ベビー・キッズ
+      -#         %li.categoryTree--item
+      -#           %a#4{:href => "#"} インテリア・住まい・小物
+      -#         %li.categoryTree--item
+      -#           %a#5{:href => "#"} 本・音楽・ゲーム
+      -#         %li.categoryTree--item
+      -#           %a#6{:href => "#"} おもちゃ・ホビー・グッズ
+      -#         %li.categoryTree--item
+      -#           %a#7{:href => "#"} コスメ・香水・美容
+      -#         %li.categoryTree--item
+      -#           %a#8{:href => "#"} 家電・スマホ・カメラ
+      -#         %li.categoryTree--item
+      -#           %a#9{:href => "#"} スポーツ・レジャー
+      -#         %li.categoryTree--item
+      -#           %a#10{:href => "#"} ハンドメイド
+      -#         %li.categoryTree--item
+      -#           %a#11{:href => "#"} チケット
+      -#         %li.categoryTree--item
+      -#           %a#12{:href => "#"} 自動車・オートバイ
+      -#         %li.categoryTree--item
+      -#           %a#13{:href => "#"} その他
+      -#   %li.listsLeft__item
+      -#     %a#brandBtn{:href => "#"} ブランド
+      -#     %ul.brandsPulldown.displayNone
+      -# %ul.listsRight
+      -#   %li.listsRight__item.listsRight__item--login
+          %a{:href => "#"} ログイン
+        %li.listsRight__item.listsRight__item--new
+          %a{:href => "#"} 新規会員登録
+.main
+  %section.mainVisual
+    .content
+      %h2.content__subtitle
+        %br
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .content__btn
+        = link_to image_tag("icon/icon_apple.png", class:"bannerBtn")
+        = link_to image_tag("icon/icon_google.png", class:"bannerBtn")
+    .picture
+  %section.topIntroduction
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number 1
+          = image_tag 'pict/pict-reason-01.jpg', alt: '選ばれる理由1'
+        %h3.list__text
+          %span 3分
+          ですぐに出品
+        %p.list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__pict
+          %span.number 2
+          = image_tag 'pict/pict-reason-02.jpg', alt: '選ばれる理由2'
+        %h3.list__text
+          %span シンプル
+          で使いやすい
+        %p.list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list.list--last
+        .list__pict
+          %span.number 3
+          = image_tag 'pict/pict-reason-03.jpg', alt: '選ばれる理由1'
+        %h3.list__text
+          手数料
+          %span 業界最安
+        %p.list__description
+          最大3%でお得に出品&amp;購入！
+  %section.topMiddleDl
+    .topMiddleDl__inner
+      %h2.subtitle2 会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .btn
+        = link_to image_tag("icon/icon_apple.png", class:"bannerBtn")
+        = link_to image_tag("icon/icon_google.png", class:"bannerBtn")
+  %section.topKeyFeatures
+    %h2.head FURIMAの特徴
+    .items
+      %section.item
+        %figure.item__img
+          = image_tag 'icon/icon-01.png', alt: '特徴1'
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item__img
+          = image_tag 'icon/icon-03.png', alt: '特徴2'
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.item
+        %figure.item__img
+          = image_tag 'icon/icon-04.png', alt: '特徴3'
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickupContainer
+    %h2.head2 ピックアップカテゴリー
+    .productBox
+      .productHead
+        = link_to "#" do
+          %h3.title 新規投稿商品
+      .productLists
+        .productList
+          = link_to "/products/9" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name テスト
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)
+        .productList
+          = link_to "/products/8" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name ee
+              .details
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          = link_to "/products/3" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name product3
+              .details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          = link_to "/products/2" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name product2
+              .details
+                %ul
+                  %li 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          = link_to "/products/1" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name product1
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)
+  %section.pickupContainer
+    %h2.head2 ピックアップブランド
+    .productBox
+      .productHead
+        = link_to "#" do
+          %h3.title アーカイバ
+      .productLists
+        .productList
+          = link_to "/products/9" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name テスト
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)
+        .productList
+          = link_to "/products/8" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name ee
+              .details
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          = link_to "/products/3" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name product3
+              .details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          = link_to "/products/2" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name product2
+              .details
+                %ul
+                  %li 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          = link_to "/products/1" do
+            %figure.productList--img
+              = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+            .productList--body
+              %h3.name product1
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)
+%aside.appBanner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .inner__icon
+      = link_to image_tag("icon/icon_apple.png", class:"bannerBtn")
+      = link_to image_tag("icon/icon_google.png", class:"bannerBtn")
+.footer
+  %ul.contents
+    %li.content2
+      %h2.content2__head FURIMAについて
+      %ul
+        %li
+          = link_to "会社概要（運営会社）", "#", class: "footerLink"
+        %li
+          = link_to "プライバシーポリシー", "#", class: "footerLink"
+        %li
+          = link_to "FURIMA利用規約", "#", class: "footerLink"
+        %li
+          = link_to "ポイントに関する特約", "#", class: "footerLink"
+    %li.content2
+      %h2.content2__head FURIMAを見る
+      %ul
+        %li
+          = link_to "カテゴリー一覧", "#", class: "footerLink"
+        %li
+          = link_to "ブランド一覧", "#", class: "footerLink"
+    %li.content2
+      %h2.content2__head ヘルプ＆ガイド
+      %ul
+        %li
+          = link_to "FURIMAガイド", "#", class: "footerLink"
+        %li
+          = link_to "FURIMAロゴ利用ガイドライン", "#", class: "footerLink"
+        %li
+          = link_to "お知らせ", "#", class: "footerLink"
+  .footer__logo
+    = link_to "/" do
+      = image_tag 'logo/logo-white.png', alt: 'ロゴ'
+  %p.copyright © FURIMA
+= link_to "#" do
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    = image_tag 'icon/icon_camera.png', alt: '出品ボタン', class: 'purchaseBtn__icon'
