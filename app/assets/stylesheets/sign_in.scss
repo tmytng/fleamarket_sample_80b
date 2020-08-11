@@ -1,12 +1,13 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background: #f8f8f8;
 }
 header {
   display: flex;
   justify-content: center;
-}
-p {
-  margin-top: 50px;
+  margin-bottom: 30px;
 }
 input {
   width: 100%;
@@ -40,6 +41,16 @@ img {
   line-height: 40px;
   text-decoration: none;
   width: 328px;
+  height: 40px;
+}
+.Form-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  width: 60%;
+  margin: auto;
+  padding-top: 60px;
 }
 .Form-main {
   display: flex;
@@ -49,7 +60,7 @@ img {
   display: flex;
   justify-content: center;
   background: white;
-  height: 600px;
+  height: 500px;
   width: 60%;
   &__title {
     margin-top: 150px;
