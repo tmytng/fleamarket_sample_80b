@@ -579,8 +579,8 @@ span {
   &__icon {
     width: 60%;
   }
-  &--:hover {
-    opacity: .9;
-    transition: 200ms;
-  }
+}
+.purchaseBtn:hover {
+  opacity: 0.9;
+  transition: 200ms;
 }
