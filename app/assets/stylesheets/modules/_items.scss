@@ -100,6 +100,70 @@ span {
 .listsLeft__item:nth-child(2)>a {
   background-image: url("icon_brand.svg")
 }
+
+// カテゴリー一覧
+
+.tree {
+  z-index: 2;
+  position: absolute;
+  background-color: #fff;
+  width: 240px;
+  top: 40px;
+}
+.categoryTree {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.categoryTree--item a {
+    line-height: 40px;
+    display: block;
+    width: 240px;
+    padding: 3px 8px 3px 5px;
+    border-bottom: 1px solid #f8f8f8;
+}
+.tree .categoryTree li {
+  position: relative;
+}
+
+.tree .subcatTree {
+  min-height: 480px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 240px;
+}
+
+.tree .subcatTree--item a {
+  display: block;
+  width: 250px;
+  padding: 1px 8px 1px 5px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.tree .itemTree {
+  background-color: #fff;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 480px;
+}
+
+.tree .itemTree--item a {
+  display: block;
+  width: 250px;
+  padding: 0 0 0 5px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+
+
+
 .listsRight {
   margin-left: auto;
   display: flex;
