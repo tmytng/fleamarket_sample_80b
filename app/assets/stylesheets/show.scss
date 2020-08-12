@@ -23,7 +23,7 @@
 .Secondarycontent {
   width: 100%;
   padding: 72px 0 24px 0;
-  background: url(/user-bg.jpg);
+  background-image: image-url("pict/user-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   &__inner {
