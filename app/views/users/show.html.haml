@@ -1,0 +1,16 @@
+%link{:href => "show.scss", :rel => "stylesheet"}/
+%body
+  .Mainwrapper
+    .Maincontainer
+      .Information
+        プロフィール
+      .Secondarycontent
+        .Secondarycontent__inner
+          %img.profile{src: "/member_photo_noimage_thumb.png"}
+          %input.username{:type => "text"}
+      .Formbox
+        .Formbox__form
+          %textarea{:placeholder => "自己紹介の記入をお願いします。"}
+        .Formbox__btn
+          %button.edit{:type => "submit"} 
+            登録する
