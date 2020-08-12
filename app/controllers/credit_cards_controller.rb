@@ -3,7 +3,7 @@ class CreditCardsController < ApplicationController
   before_action :set_card
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    card = Credit_card.where(user_id: current_user.id).first
+    card = CreditCard.where(user_id: current_user.id).first
     redirect_to action: "index" if card.present?
   end
 
@@ -17,7 +17,7 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.create(
         card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
       )
-      @card = Credit_card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "index"
       else
@@ -29,6 +29,6 @@ class CreditCardsController < ApplicationController
   private
 
   def set_card
-    @card = Credit_card.where(user_id: current_user.id).first if Credit_card.where(user_id: current_user.id).present?
+    @card = CreditCard.where(user_id: current_user.id).first if CreditCard.where(user_id: current_user.id).present?
   end
 end
