@@ -1,10 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_parents
 
-  def index
-    @categories = Category.order(:id)
-  end
-
   def new
     @children = Category.find(params[:parent_id]).children
     respond_to do |format|
@@ -17,3 +13,5 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 end
+
+# home.controller.rbへ改称予定

@@ -5,7 +5,7 @@
         = link_to "#" do
           = image_tag 'logo/logo.png', alt: 'ロゴ'
       .searchBox
-        -# = form_with model: @items do |f|
+        -# = form_with model: @product do |f|
         -#   = f.hidden_field :カラム名, value: "✓"
         -#   = f.text_field :name, class:'#', :placeholder => "メールアドレス", :type => "email", :value => ""
         -#   = f.submit "検索する"
@@ -15,20 +15,18 @@
     .nav
       .listsLeft
         .listsLeft__item.listsLeft__item--first
-          = link_to "カテゴリー", "#", class: "categoryName"
-          .tree
-            %ul.categoryTree
+          = link_to "カテゴリー", "#", class: "categoryBtn"
+          .categoryField.displayNone
+            .parentsList
               - @parents.each do |parent|
-                %li.categoryTree--item
-                  = link_to parent.name
-                  %ul.subcatTree
-                    - parent.children.each do |child|
-                      %li.subcatTree--item
-                        = link_to child.name
-                        %ul.itemTree
-                          - child.children.each do |grandchild|
-                            %li.itemTree--item
-                              = link_to grandchild.name
+                .parentsList--item
+                  = link_to "#{parent.name}", item_path(parent), class: "parentCategory", id: "#{parent.id}"
+            .childrenList
+              .childrenList--item
+            .grandChildrenList
+              .grandChildrenList--item
+        .listsLeft__item
+          = link_to "ブランド", "#", class: "brandBtn"
       .listsRight
         -# - if user_signed_in?
         -#   = link_to "ログアウト", destroy_user_session_path, method: :delete

@@ -1,76 +1,58 @@
 $(function () {
-  $(".categoryName").mouseover(
-    function () {
-      $("ul.categoryTree").toggle();
-    },
-  );
-  $(".categoryName li ul").hide();
-  $(".categoryName li").mouseover(function () {
-    $(">ul:not(:animated)", this).stop(true, true).slideDown("fast");
-    $(">a", this).addClass("active");
+  // カテゴリボタンのマウスオーバー時の表示
+  // 表示のUI向上のためには表示系の制御をかける必要あり
+  $('.categoryBtn').mouseenter(function () {
+    $('.categoryField').removeClass("displayNone");
+  })
+  $('.categoryBtn').mouseleave(function () {
+    $('.categoryField').addClass("displayNone");
+  })
+  // 子カテゴリー追加
+  function buildChildHTML(child) {
+    var html = `<a class="childCategory" id="${child.id}"
+                href="/items/${child.id}">${child.name}</a>`;
+    return html;
+  }
+  // 孫カテゴリー追加
+  function buildGrandChildHTML(child) {
+    var html = `<a class="grandChildCategory" id="${child.id}"
+              href="/items/${child.id}">${child.name}</a>`;
+    return html;
+  }
+  // 子カテゴリのマウスオーバー時の表示
+  $(".parentCategory").on("mouseover", function () {
+    var id = this.id
+    $('.categoryField').removeClass("displayNone");
+    $(".childCategory").remove();
+    $(".grandChildCategory").remove();
+    $.ajax({
+      type: 'GET',
+      url: '/items/new',
+      data: { parent_id: id },
+      dataType: 'json'
+    }).done(function (children) {
+      children.forEach(function (child) {
+        var html = buildChildHTML(child);
+        $(".childrenList--item").append(html);
+      })
+    });
   });
-
-
-  $("li.categoryTree--item").hover(
-    function () {
-      $("ul.subcatTree").toggle();
-    },
-  );
+  // 孫カテゴリのマウスオーバー時の表示
+  $(document).on("mouseover", ".childCategory", function () {
+    var id = this.id
+    $.ajax({
+      type: 'GET',
+      url: '/items/new',
+      data: { parent_id: id },
+      dataType: 'json'
+    }).done(function (children) {
+      children.forEach(function (child) {
+        var html = buildGrandChildHTML(child);
+        $(".grandChildrenList--item").append(html);
+      })
+      $(document).on("mouseover", ".childCategory", function () {
+        $(".grandChildCategory").remove();
+      });
+    });
+  });
 });
-
-
-// $(function () {
-//   // 子カテゴリーを追加するための処理です。
-//   function buildChildHTML(child) {
-//     var html = `<a class="child_category" id="${child.id}"
-//                   href="/category/${child.id}">${child.name}</a>`;
-//     return html;
-//   }
-
-//   $(".parent_category").on("mouseover", function () {
-//     var id = this.id//どのリンクにマウスが乗ってるのか取得します
-//     $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
-//     $('#' + id).addClass("now-selected-red");//赤色のcssのためです
-//     $(".child_category").remove();//一旦出ている子カテゴリ消します！
-//     $(".grand_child_category").remove();//孫、てめえもだ！
-//     $.ajax({
-//       type: 'GET',
-//       url: '/category/new',//とりあえずここでは、newアクションに飛ばしてます
-//       data: { parent_id: id },//どの親の要素かを送ります　params[:parent_id]で送られる
-//       dataType: 'json'
-//     }).done(function (children) {
-//       children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
-//         var html = buildChildHTML(child);//HTMLにして
-//         $(".children_list").append(html);//リストに追加します
-//       })
-//     });
-//   });
-
-//   // 孫カテゴリを追加する処理です　基本的に子要素と同じです！
-//   function buildGrandChildHTML(child) {
-//     var html = `<a class="grand_child_category" id="${child.id}"
-//                  href="/category/${child.id}">${child.name}</a>`;
-//     return html;
-//   }
-
-//   $(document).on("mouseover", ".child_category", function () {//子カテゴリーのリストは動的に追加されたHTMLのため
-//     var id = this.id
-//     $(".now-selected-gray").removeClass("now-selected-gray");//灰色のcssのため
-//     $('#' + id).addClass("now-selected-gray");//灰色のcssのため
-//     $.ajax({
-//       type: 'GET',
-//       url: '/category/new',
-//       data: { parent_id: id },
-//       dataType: 'json'
-//     }).done(function (children) {
-//       children.forEach(function (child) {
-//         var html = buildGrandChildHTML(child);
-//         $(".grand_children_list").append(html);
-//       })
-//       $(document).on("mouseover", ".child_category", function () {
-//         $(".grand_child_category").remove();
-//       });
-//     });
-//   });
-// });
-
