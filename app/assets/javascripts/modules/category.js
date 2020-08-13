@@ -1,15 +1,22 @@
-// $(function () {
-//   $(".categoryName").hover(
-//     function () {
-//       $("ul.categoryTree").toggle();
-//     },
-//   );
-//   $(".categoryName li ul").hide();
-//   $(".categoryName li").hover(function () {
-//     $(">ul:not(:animated)", this).stop(true, true).slideDown("fast");
-//     $(">a", this).addClass("active");
-//   },
-// });
+$(function () {
+  $(".categoryName").mouseover(
+    function () {
+      $("ul.categoryTree").toggle();
+    },
+  );
+  $(".categoryName li ul").hide();
+  $(".categoryName li").mouseover(function () {
+    $(">ul:not(:animated)", this).stop(true, true).slideDown("fast");
+    $(">a", this).addClass("active");
+  });
+
+
+  $("li.categoryTree--item").hover(
+    function () {
+      $("ul.subcatTree").toggle();
+    },
+  );
+});
 
 
 // $(function () {
