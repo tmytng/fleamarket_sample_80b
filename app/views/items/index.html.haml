@@ -20,7 +20,6 @@
             %ul.categoryTree
               - @parents.each do |parents_categories|
                 = link_to "#{parents_categories.name}", "#", class: "parent_category", id: "#{parents_categories.id}"
-
       %ul.listsRight
         %li.listsRight__item.listsRight__item--login
           %a{:href => "#"} ログイン
