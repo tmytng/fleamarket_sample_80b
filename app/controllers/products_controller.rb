@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
-        @product.images.build
+        @product.images.build()
         @parent = Category.where(id: 1..13)
     end
 
@@ -13,6 +13,10 @@ class ProductsController < ApplicationController
         @product = Product.new(product_params)
 
         if @product.save
+            # params[:product_images][:image].each do |image|
+            #     @product.photos.create(image: image, product_id: @product.id)
+            # 途中なのであしからず
+            end
             redirect_to root_path
         else
             redirect_to new_product_path
