@@ -1,0 +1,20 @@
+%link{:href => "show.scss", :rel => "stylesheet"}/
+%body
+  .Mainwrapper
+    .Maincontainer
+      .Information
+        プロフィール
+      .Secondarycontent
+        .Secondarycontent__inner
+          = image_tag "pict/member_photo_noimage_thumb.png", alt: "icon", class: "profile"
+          %input.username{:type => "text"}
+      .Formbox
+        .Formbox__form
+          %textarea{placeholder: "自己紹介の記入をお願いします。", class: "profile_text"}
+        .Formbox__btn
+          %button.edit{:type => "submit"} 
+            変更する
+        -# = form_with(model:, local: true) do |f|
+        -#   = f.text_field :nickname
+        -#   = f.text_area :profile, { class: "profile_text"}
+        -#   = f.submit "変更する"
