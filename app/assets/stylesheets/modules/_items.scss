@@ -67,7 +67,7 @@ span {
     display: flex;
     line-height: 38px;
     padding: 0 0 0 16px;
-    &__a {
+    & a {
       color: #333;
       text-decoration: none;
       line-height: 32px;
@@ -76,7 +76,7 @@ span {
       background-size: 18px;
       padding-right: 30px;
     }
-    &__a:hover {
+    & a:hover {
       color: #ffb340;
     }
     &--first {
@@ -85,7 +85,9 @@ span {
     }
   }
 }
-.categoryName {
+// カテゴリー一覧
+
+.categoryBtn {
   color: #333;
   text-decoration: none;
   line-height: 32px;
@@ -94,11 +96,66 @@ span {
   background-size: 18px;
   padding-right: 30px;
 }
-.listsLeft__item--first>a {
-  background-image: url("icon_category.svg")
+
+.categoryField {
+  z-index: 2;
+  position: absolute;
+  background-color: #fff;
+  width: 240px;
+  top: 40px;
+  }
+
+.displayNone {
+  display: none;
 }
-.listsLeft__item:nth-child(2)>a {
-  background-image: url("icon_brand.svg")
+.parentsList {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &--item {
+    & a {
+    line-height: 40px;
+    display: block;
+    width: 240px;
+    padding: 3px 8px 3px 5px;
+    border-bottom: 1px solid #f8f8f8;
+    }
+  }
+}
+.childrenList {
+  min-height: 480px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 240px;
+  &--item{
+    & a {
+    display: block;
+    width: 250px;
+    padding: 1px 8px 1px 5px;
+    border-bottom: 1px solid #f8f8f8;
+    }
+  }
+}
+.grandChildrenList {
+  background-color: #fff;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 490px;
+  &--item {
+    & a {
+      display: block;
+      width: 250px;
+      padding: 0 0 0 5px;
+      border-bottom: 1px solid #f8f8f8;
+    }
+  }
 }
 .listsRight {
   margin-left: auto;
@@ -107,7 +164,7 @@ span {
     color: #333;
     line-height: 38px;
     padding: 0 0 0 16px;
-    &__a {
+    & a {
       display: flex;
       align-items: center;
       color: #333;
@@ -117,7 +174,7 @@ span {
         padding-right: 5px;
         color: #c4c4c4;
       }
-      &--img {
+      & img {
         width: 26px;
         margin-right: 8px;
       }
@@ -125,7 +182,7 @@ span {
   }
 }
 
-// 以下はフォーム完成後に着手
+// 検索ボックス。未実装
 
 .searchBox {
   margin-left: auto;
