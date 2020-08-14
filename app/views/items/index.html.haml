@@ -125,7 +125,9 @@
             %figure.productList--img
               = image_tag 'pict/no-image-available.jpg', alt: 'no image'
             .productList--body
-              %h3.name テスト
+              - @products.each do |product|
+                = product.name
+              -# %h3.name テスト
               .details
                 %ul
                   %li 10000円
