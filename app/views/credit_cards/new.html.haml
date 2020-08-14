@@ -4,7 +4,7 @@
       %h2 クレジットカード情報入力
     .credit-card
       .credit-card__inner
-        = form_with url: pay_credit_cards_path, model: @card, method: :post, html: { name: "inputForm"}, local: true do |f|
+        = form_with model: @card, method: :post, html: { name: "inputForm"}, local: true do |f|
           = f.label :カード番号, class: 'label'
           %span{class: "require"} 必須
           %br
