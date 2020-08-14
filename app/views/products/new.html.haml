@@ -1,0 +1,71 @@
+.sell_wrapper
+  .imagezone
+    .exhibition
+      .exhibition 出品画像
+      .must 必須
+    .infomation 最大10枚までアップロードできます
+    = form_with model: @product_img do |f|
+      = f.fields_for :product_imgs do |image|
+        .dropzone-container.clearfix
+          #preview
+          .dropzone-area
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = fa_icon 'camera'
+                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+              %p ドラッグアンドドロップ
+          #preview2
+          .dropzone-area2
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              %p またはクリックしてファイルをアップロード
+  .namezone
+    .name
+      .name_box 商品名
+      .must 必須
+    .name_form
+    .introduction
+      .introduction_box 商品説明
+      .must 必須
+    .introduction_form
+    = form_with model: @product do |form|
+      -# = f.text_area :introduction, size: "73x7",placeholder: "商品の説明（必須1,000文字以内 (色、素材、重さ、定価、注意点など)",id: "product_introduction"
+  .detailzone
+    .detail 商品の詳細
+    .categoly_box
+      .categoly カテゴリー
+      .must 必須
+    .categoly_form
+    .brand_box
+      .brand
+      .optional 任意
+    .condition_box
+      .condition
+      .must 必須
+    .condition_form
+  .shipping_zone
+    .shipping 配送について
+    .shipping_cost_box
+      .shipping_cost 配送料の負担
+      .must 必須
+    .shipping_cost_form
+    .prefecture_box
+      .prefecture 発送元の地域
+      .must 必須
+    .prefecture_form
+    .shipping_days_box
+      .shipping_days 発送までの日数
+      .must 必須
+    .shipping_days_form
+  .price_zone
+    .price 価格（¥300〜9,999,999）
+    .price_wrapper
+      .price_box
+        .price 販売価格
+        .must 必須
+      .price_form_wrapper
+        .yen_mark ¥
+        .price_form
+      .under_line
+    .seles_commission_box
+      .sales_commission 販売手数料（10%）
+      .calculator
