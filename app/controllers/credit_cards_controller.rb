@@ -1,34 +1,65 @@
 class CreditCardsController < ApplicationController
+  
   require "payjp"
-  before_action :set_card
 
-  def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    card = Credit_card.where(user_id: current_user.id).first
-    redirect_to action: "index" if card.present?
+  def new
+    @card = CreditCard.new
+    # card = CreditCard.where(user_id: current_user.id)
+    # redirect_to action: "show" if card.exists?
   end
 
-  def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = '秘密鍵'
-
+  def create #payjpとCardのデータベース作成を実施します。
+    Payjp.api_key = "PAYJP_PRIVATE_KEY"
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-      # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録します。
       customer = Payjp::Customer.create(
-        card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
-      )
-      @card = Credit_card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      card: params['payjp-token'],
+      metadata: {user_id: current_user.id}
+      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "index"
+        redirect_to action: "new"
       else
-        redirect_to action: "create"
+        redirect_to action: "new"
       end
     end
   end
 
-  private
+  def pay
+    product = Product.find(credit_card_params[:product_id])
+    card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = 'PAYJP_PRIVATE_KEY'
+    Payjp::Charge.create(
+    amount:  product.price,
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
+    product[:status] = 1
+    product.save
+   redirect_to action: 'complete'
+  end
 
-  def set_card
-    @card = Credit_card.where(user_id: current_user.id).first if Credit_card.where(user_id: current_user.id).present?
+  def delete #PayjpとCardデータベースを削除します
+    card = CreditCard.where(user_id: current_user.id).first
+    if card.blank?
+    else
+      Payjp.api_key = "PAYJP_PRIVATE_KEY"
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to action: "new"
+  end
+
+  def show #Cardのデータpayjpに送り情報を取り出します（キータのindexも兼ねてる,参照のconfimation）
+    card = CreditCard.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = "PAYJP_PRIVATE_KEY"
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 end
