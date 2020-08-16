@@ -1,10 +1,19 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+.Pay_main
+  .Pay_main__box
+    %p{class: "pay_question pay_content"} 購入を確定しますか？
+    %p{class: "product_name pay_content"} Apple MacBook Pro 13インチ
+    %p{class: "product_price pay_content"} ¥135,000(送料込み)
+    %br
+    %p{class: "pay_title pay_content"} 支払い方法
+    - if @default_card_information.blank?
+      %br /
+    - else
+      -#以下カード情報を表示
+      .card_infomation
+        = "**** **** **** " + @default_card_information.last4
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+    %br
+    = form_tag(action: :pay, method: :post) do
+      %button{class: "pay_btn"} 購入する
