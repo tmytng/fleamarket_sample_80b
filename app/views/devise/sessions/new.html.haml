@@ -9,7 +9,7 @@
           = link_to "" do
             %img{alt: "image", src: "/assets/logo.png"}/
     .Form-top
-      =link_to "新規会員登録", "#", class: "new_account"
+      =link_to "新規会員登録", new_user_registration_path, method: :get, class: "new_account"
     .Form-main
       .Form-box
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

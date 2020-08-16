@@ -30,7 +30,7 @@ class Product < ApplicationRecord
 
     enum shipping_days:{
         '---':      0,  #---
-        days1_2:    1,  #1日~2日で発送
+        days1_2:    1,  #
         days2_3:    2,  #2日~3日で発送
         days4_7:    3,  #4日~7日で発送
     }
