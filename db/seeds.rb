@@ -395,30 +395,30 @@
 
 # ダミーデータ（プロダクト）
 
-# p "Create Products"
-# Product.create!(
-#   name: 'テスト商品1',
-#   price: '5000',
-#   description: 'テスト登録です。',
-#   condition: 1,
-#   size: 'L',
-#   shipping_cost: 1,
-#   shipping_days: 1,
-#   prefecture: '東京都',
-#   trading_status: '出品中',
-#   brand_id: nil,
-#   user_id: 1
-#   )
-# Product.create!(
-#   name: 'テスト商品2',
-#   price: '100000',
-#   description: 'テスト登録2です。',
-#   condition: 2,
-#   size: 'S',
-#   shipping_cost: 2,
-#   shipping_days: 2,
-#   prefecture: '神奈川県',
-#   trading_status: '出品中',
-#   brand_id: nil,
-#   user_id: 1
-#   )
+  # p "Create Products"
+  # Product.create!(
+  #   name: 'テスト商品1',
+  #   price: '5000',
+  #   description: 'テスト登録です。',
+  #   condition: 1,
+  #   size: 'L',
+  #   shipping_cost: 1,
+  #   shipping_days: 1,
+  #   prefecture: '東京都',
+  #   trading_status: '出品中',
+  #   brand_id: nil,
+  #   user_id: 1
+  #   )
+  # Product.create!(
+  #   name: 'テスト商品2',
+  #   price: '100000',
+  #   description: 'テスト登録2です。',
+  #   condition: 2,
+  #   size: 'S',
+  #   shipping_cost: 2,
+  #   shipping_days: 2,
+  #   prefecture: '神奈川県',
+  #   trading_status: '出品中',
+  #   brand_id: nil,
+  #   user_id: 1
+  #   )
