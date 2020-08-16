@@ -2,13 +2,13 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FURIMA
+    %title FleamarketSample80b
     %meta{content: "authenticity_token", name: "csrf-param"}/
     %meta{content: "Wmwb/zn41an8dk1rTNQCPsuR7COsom1mLMWcHF+LM8p0IWVUo2eQnKcomDh0ZdWbhnhdyR5QLT1utxxeCoEbRw==", name: "csrf-token"}/
-    %link{"data-turbolinks-track" => "reload", href: "/assets/sign_up.scss", media: "all", rel: "sign_up"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
     .Form-logo
-      %img{alt: "image", src: "/assets/logo.png"}/
+      %img{alt: "image", src: "/logo/logo.png"}/
   .Form-main
     .From-box
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
