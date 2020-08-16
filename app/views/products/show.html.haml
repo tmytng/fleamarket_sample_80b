@@ -8,10 +8,10 @@
           .itemBox__body
             %ul
               %li
-                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}/
+                = image_tag 'pict/no-image-available.jpg'
                 %ul
                   %li
-                    %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", :width => "75"}/
+                    = image_tag 'pict/no-image-available.jpg'
           .itemBox__price
             %span
               ¥10000
@@ -56,29 +56,21 @@
                   %td 1-2日で発送
       %ul.links
         %li
-          %a{:href => "#"}
-            %i.fa.fa-angle-left
-            %span
-            前の商品
+          = link_to "前の商品", "#"
         %li
-          %a{:href => "#"}
-            %span 後ろの商品
-            %i.fa.fa-angle-right
+          = link_to "後ろの商品", "#"
       .relatedItems
-        %a{:href => "#"} レディースをもっと見る
-        .productLists
+        = link_to "レディースをもっと見る", "#"
+        .desProductLists
           .productList
-            %a{:href => "/products/1"}
+            = link_to "/products/1" do
               %figure.productList--img
-                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+                = image_tag 'pict/no-image-available.jpg'
               .productList--body
                 %h3.name product1
                 .details
                   %ul
                     %li 10000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      1
                   %p (税込)
 = render "layouts/appBanner"
 = render "layouts/footer"
