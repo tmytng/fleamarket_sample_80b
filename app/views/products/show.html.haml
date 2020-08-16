@@ -30,11 +30,11 @@
                 %tr
                   %th カテゴリー
                   %td
-                    %a{:href => "#"} レディース
+                    = link_to "レディース", "#"
                     %br/
-                    %a{:href => "#"} トップス
+                    = link_to "トップス", "#"
                     %br/
-                    %a{:href => "#"} Tシャツ/カットソー(半袖/袖なし)
+                    = link_to "Tシャツ/カットソー(半袖/袖なし)", "#"
                 %tr
                   %th ブランド
                   %td
@@ -50,7 +50,7 @@
                 %tr
                   %th 発送元の地域
                   %td
-                    %a{:href => "#"} 北海道
+                    = link_to "北海道", "#"
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
@@ -61,7 +61,7 @@
           = link_to "後ろの商品", "#"
       .relatedItems
         = link_to "レディースをもっと見る", "#"
-        .desProductLists
+        .ProductLists-des
           .productList
             = link_to "/products/1" do
               %figure.productList--img
