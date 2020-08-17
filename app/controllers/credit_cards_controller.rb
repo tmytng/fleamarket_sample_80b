@@ -8,6 +8,7 @@ class CreditCardsController < ApplicationController
     # redirect_to action: "show" if card.exists?
   end
 
+
   def create #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = "秘密鍵"
     if params['payjp-token'].blank?
@@ -19,15 +20,16 @@ class CreditCardsController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "new"
+        redirect_to root_path
       else
         redirect_to action: "new"
       end
     end
   end
   
+
   def show
-    # @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
     card = CreditCard.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -42,27 +44,31 @@ class CreditCardsController < ApplicationController
     end
   end
 
+
   def pay
     @product = Product.find(params[:id])
     card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = '秘密鍵'
-    # Payjp::Charge.create(
-    # # amount:  product.price,
+    Payjp::Charge.create(
+    amount:  @product.price,
     # amount: 13500
-    # # customer: card.customer_id,
-    # # currency: 'jpy',
-    # )
-    # product[:trading_status] = 1
-    # product.save
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
+    product[:trading_status] = 1
+    product.save
   redirect_to action: 'done'
   end
 
+
   def done
-    # @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
+
 
   def index 
     card = CreditCard.where(user_id: current_user.id).first
+    @card = card.id
     if card.blank?
       redirect_to action: "new" 
     else
@@ -72,8 +78,9 @@ class CreditCardsController < ApplicationController
     end
   end
   
+
   def delete #PayjpとCardデータベースを削除します
-    card = CreditCard.where(user_id: current_user.id).first
+    card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = "秘密鍵"
@@ -84,9 +91,11 @@ class CreditCardsController < ApplicationController
       redirect_to action: "new"
   end
 
+
   private
   def credit_card_params
     params.permit('payjp-token',:product_id)
   end
 
+  
 end
