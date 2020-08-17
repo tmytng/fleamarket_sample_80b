@@ -50,6 +50,7 @@
       .From-box__field
         生年月日
         %span{class: "require"} 必須
-        = f.text_field :birth_day, class: 'form', placeholder: '例：2020-01-01 (-で区切って入力)'
+      .From-box__field
+        = f.date_select :birth_day, class: 'form', use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
       .From-box__btn
-        = f.submit "Sign up", value: '登録', class: 'signupBtn'
+        = f.submit value: '登録', class: 'signupBtn'
