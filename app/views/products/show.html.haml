@@ -4,7 +4,8 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name テスト
+          %h2.itemBox__name
+            = @product.name
           .itemBox__body
             %ul
               %li
@@ -14,19 +15,21 @@
                     = image_tag 'pict/no-image-available.jpg'
           .itemBox__price
             %span
-              ¥10000
+              = "#{@product.price}円"
             .itemBox__price-detail
               %span
                 (税込)
               %span
                 送料込み
-          .itemDetail テストテストテストテストテストテスト
+          .itemDetail
+            = @product.description
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td あああ
+                  %td
+                    = @product.user_id
                 %tr
                   %th カテゴリー
                   %td
@@ -38,22 +41,27 @@
                 %tr
                   %th ブランド
                   %td
+                    = @product.brand_id
                 %tr
                   %th 商品のサイズ
                   %td
+                    = @product.size
                 %tr
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td
+                    = @product.condition
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td
+                    = @product.shipping_cost
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "北海道", "#"
+                    = @product.prefecture
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
+                  %td
+                    = @product.shipping_days
       %ul.links
         %li
           = link_to "前の商品", "#"
