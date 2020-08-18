@@ -28,6 +28,12 @@ class ProductsController < ApplicationController
         @product = Product.find(params[:id])
     end
 
+    def destroy
+        product = Product.find(params[:id])
+        product.destroy
+        redirect_to root_path
+    end
+
     def product_params
         params.require(:product).permit(:name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :trading_status)
     end

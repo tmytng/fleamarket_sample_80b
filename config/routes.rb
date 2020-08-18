@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # デバイス用
   devise_for :users
   root 'items#index'
-  resources :products, only:[:new, :create, :show] do
+  resources :products, only:[:new, :create, :show, :destroy] do
     resources :credit_cards, only:[:show] do
       # collection do
       #   delete 'delete', to: 'credit_cards#delete'
