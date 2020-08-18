@@ -54,6 +54,8 @@
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
+      .buy_box
+        = link_to "購入する", product_credit_card_path(@product.id), class: "buy_btn"
       %ul.links
         %li
           = link_to "前の商品", "#"

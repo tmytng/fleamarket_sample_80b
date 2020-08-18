@@ -14,6 +14,10 @@
         .Formbox__btn
           %button.edit{:type => "submit"} 
             変更する
+        .card_pages
+          = link_to "クレジットカードの登録", new_credit_card_path
+        .card_pages
+          = link_to "クレジットカードの削除", credit_cards_path
         -# = form_with(model:, local: true) do |f|
         -#   = f.text_field :nickname
         -#   = f.text_area :profile, { class: "profile_text"}

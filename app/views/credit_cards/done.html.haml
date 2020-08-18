@@ -1,0 +1,11 @@
+.Pay_main
+  .Pay_main__box
+    %p{class: "pay_question pay_content"} 購入が完了しました！
+    %p{class: "product_name pay_content"}
+      -# PC
+      = @product.name
+    %p{class: "product_price pay_content"}
+      -# 10000円
+      = @product.price
+    .back_show
+      = link_to "マイページに戻る", user_path
