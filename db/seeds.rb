@@ -422,3 +422,44 @@ User.create!(
     brand_id: nil,
     user_id: 1
     )
+
+  Product.create!(
+    name: 'テスト商品3',
+    price: '5000',
+    description: 'テスト登録3です。',
+    condition: 2,
+    size: 'L',
+    shipping_cost: 2,
+    shipping_days: 2,
+    prefecture: '千葉県',
+    trading_status: '出品中',
+    brand_id: nil,
+    user_id: 1
+    )
+  Product.create!(
+    name: 'テスト商品4',
+    price: '89000',
+    description: 'テスト登録4です。',
+    condition: 2,
+    size: 'L',
+    shipping_cost: 2,
+    shipping_days: 2,
+    prefecture: '埼玉県',
+    trading_status: '出品中',
+    brand_id: nil,
+    user_id: 1
+    )
+  Product.create!(
+    name: 'テスト商品5',
+    price: '12000',
+    description: 'テスト登録5です。',
+    condition: 2,
+    size: 'S',
+    shipping_cost: 2,
+    shipping_days: 2,
+    prefecture: '茨城県',
+    trading_status: '出品中',
+    brand_id: nil,
+    user_id: 1
+    )
+
