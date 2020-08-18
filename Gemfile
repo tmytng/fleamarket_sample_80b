@@ -41,7 +41,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -81,3 +80,4 @@ gem 'fog-aws'
 gem 'active_hash'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'dotenv-rails'
