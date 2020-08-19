@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
     def show
         @product = Product.find(params[:id])
-        # @product_img = ProductImg.find(@product.id)
+        @product_img = ProductImg.find(@product.id)
     end
 
     def edit
