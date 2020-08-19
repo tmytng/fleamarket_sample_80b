@@ -39,8 +39,6 @@ $(document).on("change","#parent_category", function() {
       //親カテゴリーが変更されたら、子/孫カテゴリー、サイズを削除し、初期値にする
       $("#children_box").empty();
       $("#grandchildren_box").empty();
-      // $('.size_box').val('');
-      // $('#size_box').css('display', 'none');
       let insertHTML = '';
       children.forEach(function(children) {
         insertHTML += appendOption(children);
@@ -53,8 +51,6 @@ $(document).on("change","#parent_category", function() {
   }else{
     $("#children_box").empty();
     $("#grandchildren_box").empty();
-    // $('.size_box').val('');
-    // $('#size_box').css('display', 'none');
   }
 });
 
@@ -62,7 +58,6 @@ $(document).on("change","#parent_category", function() {
 $(document).on('change', '#children_box', function() {
   //選択された子カテゴリーidを取得
   let childId = $('#children_category option:selected').data('category');
-  console.log(this)
   //子カテゴリーが初期値でない場合
   if (childId != ""){
     $.ajax({
@@ -72,11 +67,8 @@ $(document).on('change', '#children_box', function() {
       datatype: 'json'
     })
     .done(function(grandchildren) {
-      console.log(grandchildren)
       if (grandchildren.length != 0) {
         $("#grandchildren_box").empty();
-        // $('.size_box').val('');
-        // $('#size_box').css('display', 'none');
         let insertHTML = '';
         grandchildren.forEach(function(grandchild) {
           insertHTML += appendOption(grandchild);
@@ -88,8 +80,6 @@ $(document).on('change', '#children_box', function() {
       alert('error:孫カテゴリーの取得に失敗');
     })
   }else{
-    $("#grandchildren_box").empty();
-    // $('.size_box').val('');
-    // $('#size_box').css('display', 'none');      
+    $("#grandchildren_box").empty();     
   }
 });
