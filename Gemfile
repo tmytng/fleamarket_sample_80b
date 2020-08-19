@@ -82,5 +82,6 @@ gem 'fog-aws'
 gem 'active_hash'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'rails-i18n'
+gem 'enum_help'
 gem 'dotenv-rails'
-

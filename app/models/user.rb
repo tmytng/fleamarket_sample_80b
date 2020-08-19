@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 # # ここから追記
-#   has_many :products, dependent: :destroy
+  has_many :products, dependent: :destroy
   has_one :delivery_destination, dependent: :destroy
   has_one :credit_card, dependent: :destroy
 

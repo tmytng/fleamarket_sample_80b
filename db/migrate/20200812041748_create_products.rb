@@ -4,10 +4,10 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :price
       t.string :description
-      t.string :condition
+      t.integer :condition, null: false
       t.string :size
-      t.string :shipping_cost
-      t.string :shipping_days
+      t.integer :shipping_cost, null: false
+      t.integer :shipping_days, null: false
       t.string :prefecture
       t.string :trading_status
       t.references :category, foreign_key: true, null: false

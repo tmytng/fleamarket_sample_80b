@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
     has_many :product_imgs , dependent: :destroy
-
+    # accepts_nested_attributes_for :images, allow_destroy: true
     belongs_to :category
     has_many :brands
 
@@ -37,4 +37,14 @@ class Product < ApplicationRecord
         days2_3:    2,  #2日~3日で発送
         days4_7:    3,  #4日~7日で発送
     }
-end
+
+    # category idができたら編集予定→Category.products
+    def previous
+      Product.where("id < ?", self.id).order("id DESC").first
+    end
+
+    def next
+      Product.where("id > ?", self.id).order("id ASC").first
+    end
+
+  end

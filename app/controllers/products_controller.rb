@@ -33,6 +33,22 @@ class ProductsController < ApplicationController
     end
 
     def show
+      @product = Product.find(params[:id])
+      # @product_img = ProductImg.find(@product.id)
+    end
+
+    def edit
+      @product = Product.find(params[:id])
+    end
+
+    def update
+      @product = Product.find(params[:id])
+      @product.update(product_params)
+      if @item.update(item_params)
+        redirect_to @item
+      else
+        render :edit
+      end
     end
 
     def destroy

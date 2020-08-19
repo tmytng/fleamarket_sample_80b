@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :items 
   root 'items#index'
-
   resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }

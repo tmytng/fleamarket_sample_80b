@@ -4,65 +4,89 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name テスト
+          %h2.itemBox__name
+            = @product.name
           .itemBox__body
-            %ul
-              %li
-                = image_tag 'pict/no-image-available.jpg'
-                %ul
-                  %li
-                    = image_tag 'pict/no-image-available.jpg'
+            -# %ul
+            -#   %li
+            -#     = image_tag @product_img.image
+            -#     %ul
+            -#       - @product.product_imgs.each do |product_img|
+            -#         %li
+            -#           = image_tag @product_img.image
           .itemBox__price
             %span
-              ¥10000
+              = "#{@product.price}円"
             .itemBox__price-detail
               %span
                 (税込)
               %span
                 送料込み
-          .itemDetail テストテストテストテストテストテスト
+          .itemDetail
+            = @product.description
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td あああ
+                  %td
+                    = @product.user.nickname
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to "レディース", "#"
-                    %br/
-                    = link_to "トップス", "#"
-                    %br/
-                    = link_to "Tシャツ/カットソー(半袖/袖なし)", "#"
+                    = link_to "#{@product.category.parent.parent.name}", root_path
+                    %br
+                    = link_to "#{@product.category.parent.name}", root_path
+                    %br
+                    = link_to "#{@product.category.name}", root_path
+                    %br
                 %tr
                   %th ブランド
                   %td
+                    = @product.brand_id
                 %tr
                   %th 商品のサイズ
                   %td
-                %tr
+                    = @product.size
+                %trv
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td
+                    = @product.condition_i18n
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td
+                    = @product.shipping_cost_i18n
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "北海道", "#"
+                    = @product.prefecture
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
-      .buy_box
-        = link_to "購入する", product_credit_card_path(@product.id), class: "buy_btn"
+                  %td
+                    = @product.shipping_days_i18n
       %ul.links
         %li
-          = link_to "前の商品", "#"
+          - if @product.previous.present?
+            = link_to product_path(@product.previous) do
+              = "前の商品"
         %li
-          = link_to "後ろの商品", "#"
+          - if @product.next.present?
+            = link_to product_path(@product.next) do
+              = "次の商品"
+      - if user_signed_in? && current_user.id != @product.user_id
+        .buy_box
+          = link_to "購入する", product_credit_card_path(@product.id), class: "buy_btn"
+      - elsif user_signed_in? && current_user.id == @product.user_id
+        .buy_box
+      - else
+        .buy_box
+          = "商品を購入するにはユーザーログインが必要です。"
       - if user_signed_in? && current_user.id == @product.user_id
-        = link_to '削除', product_path(@product.id), method: :delete
+        .edit_box
+          = link_to "出品情報を編集する", edit_product_path, class: "edit_btn"
+      - if user_signed_in? && current_user.id == @product.user_id
+        .edit_box
+          = link_to '削除', product_path(@product.id), method: :delete
       .relatedItems
         = link_to "レディースをもっと見る", "#"
         .ProductLists-des
