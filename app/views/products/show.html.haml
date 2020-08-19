@@ -9,11 +9,11 @@
           .itemBox__body
             %ul
               %li
-                = image_tag @product_img.image.url
+                = image_tag @product_img.image_url
                 %ul
-                  -# - @product.product_imgs.each do |product_img|
+                  - @product.product_imgs.each do |product_img|
                     %li
-                      -# = image_tag @product_img.image
+                      = image_tag product_img.image_url
           .itemBox__price
             %span
               = "#{@product.price}円"
