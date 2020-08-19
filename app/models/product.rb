@@ -1,13 +1,14 @@
 class Product < ApplicationRecord
 
     has_many :product_imgs , dependent: :destroy
-    # accepts_nested_attributes_for :images, allow_destroy: true
-    # belongs_to :category
-    belongs_to :brand, optional:true
+    belongs_to :category
+    has_many :brands
     belongs_to :user
+    accepts_nested_attributes_for :product_imgs, limit: 10, allow_destroy: true
+    accepts_nested_attributes_for :brands
 
-    validates :name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :trading_status, :user_id, presence: true
-    # validates :category_id,  presence: true
+    validates :name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :user_id,:category_id,  presence: true
+    # validates :trading_status,  presence: true
     validates :name, length: { maximum: 40 }
     validates :description, length: {maximum: 1000}
     validates :price, numericality: { only_integr: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }

@@ -1,5 +1,5 @@
 .sell_wrapper
-  = form_with model: @product do |f|
+  = form_with model: @product, url:products_path do |f|
     .imagezone
       .exhibition
         .exhibition 出品画像
@@ -28,24 +28,28 @@
       .introduction
         .introduction_box 商品説明
         .must 必須
-      .introduction_form
-        = f.text_area :introduction, size: "73x7",placeholder: "商品の説明（必須1,000文字以内 (色、素材、重さ、定価、注意点など)",id: "product_introduction"
+      .description_form
+        = f.text_area :description, size: "73x7",placeholder: "商品の説明（必須1,000文字以内 (色、素材、重さ、定価、注意点など)",id: "product_introduction"
     .detailzone
       .detail 商品の詳細
       .categoly_box
         .categoly カテゴリー
         .must 必須
-      .categoly_form
-        = f.collection_select :parents_id, @parent.all, :id, :name, prompt:"---", name: "parent_box"
-      .categoly_form2
-        = f.collection_select :child_id, {}, :id, :name
-      .categoly_form3
-        = f.collection_select :category_id, {}, :id, :name
+      .categoly_form#partent_box
+        = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
+        = fa_icon 'chevron-down'
+      #children_box
+      #grandchildren_box
+      .size_box#size_box
+        .size
+        .must 必須
+      = f.text_field :size, placeholder:"サイズを入力してください"
       .brand_box
         .brand ブランド
         .optional 任意
       .brand_form
-        = f.text_field :brand ,placeholder: "例）シャネル"
+        = f.fields_for :brands, {} do |b|
+          =b.text_field :name, {}
       .condition_box
         .condition 商品の状態
         .must 必須
@@ -62,7 +66,7 @@
         .prefecture 発送元の地域
         .must 必須
       .prefecture_form
-        = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt:"---"
+        = f.collection_select :prefecture, JpPrefecture::Prefecture.all, :code, :name, prompt:"---"
       .shipping_days_box
         .shipping_days 発送までの日数
         .must 必須
@@ -82,3 +86,24 @@
       .seles_commission_box
         .sales_commission 販売手数料（10%）
         .calculator
+          .margin
+          .calczone
+    .submitzone
+      .exhibit
+        .exhibit__text
+          = link_to("禁止されている出品", "＃")
+          、
+          = link_to("行為", "＃")
+          を必ずご確認ください。
+          %br
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to("偽ブランドの販売", "＃")
+          は犯罪であり処罰される可能性があります。
+          %br
+          また、出品をもちまして
+          = link_to("加盟店規約", "＃")
+          に同意したことになります。
+        .exhibit__btn
+          = f.submit :出品する,id: "btn", class: "super_btn", data: {"turbolinks"=>false}
+        .exhibit__return
+          = link_to "もどる", "/", class: "button"
