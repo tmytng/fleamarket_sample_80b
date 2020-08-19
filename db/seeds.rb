@@ -407,7 +407,8 @@
     prefecture: '東京都',
     trading_status: '出品中',
     brand_id: nil,
-    user_id: 1
+    user_id: 1,
+    category_id: 164
     )
   Product.create!(
     name: 'テスト商品2',
@@ -420,7 +421,8 @@
     prefecture: '神奈川県',
     trading_status: '出品中',
     brand_id: nil,
-    user_id: 1
+    user_id: 1,
+    category_id: 231
     )
   Product.create!(
     name: 'テスト商品3',
@@ -433,7 +435,8 @@
     prefecture: '千葉県',
     trading_status: '出品中',
     brand_id: nil,
-    user_id: 1
+    user_id: 1,
+    category_id: 427
     )
   Product.create!(
     name: 'テスト商品4',
@@ -446,7 +449,8 @@
     prefecture: '埼玉県',
     trading_status: '出品中',
     brand_id: nil,
-    user_id: 1
+    user_id: 1,
+    category_id: 662
     )
   Product.create!(
     name: 'テスト商品5',
@@ -459,5 +463,6 @@
     prefecture: '茨城県',
     trading_status: '出品中',
     brand_id: nil,
-    user_id: 1
+    user_id: 1,
+    category_id: 980
     )

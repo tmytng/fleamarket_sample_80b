@@ -26,7 +26,15 @@ class ProductsController < ApplicationController
 
     def show
       @product = Product.find(params[:id])
+      # @product_img = ProductImg.find(@product.id)
     end
+
+    def edit
+    end
+
+    def update
+    end
+
 
     def product_params
         params.require(:product).permit(:name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :trading_status)
