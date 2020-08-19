@@ -13,7 +13,7 @@
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 .input_area
                   = fa_icon 'camera'
-                  = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
                 %p ドラッグアンドドロップ
             #preview2
             .dropzone-area2
@@ -40,7 +40,7 @@
         = fa_icon 'chevron-down'
       #children_box
       #grandchildren_box
-      .size_box#size_box
+      .size_box
         .size
         .must 必須
       = f.text_field :size, placeholder:"サイズを入力してください"
