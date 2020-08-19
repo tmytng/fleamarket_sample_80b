@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
     before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :buy]
 
@@ -32,10 +33,18 @@ class ProductsController < ApplicationController
     end
 
     def show
-        @product = Product.find(params[:id])
     end
 
-    
+    def destroy
+        if @product.destroy
+            redirect_to root_path
+        else
+            redirect_to product_path(@product.id)
+        end
+    end
+
+
+private
 
     #jsonで親の名前で検索し、紐づく子カテゴリーの配列を取得
     def get_category_children
@@ -65,5 +74,9 @@ class ProductsController < ApplicationController
             .merge(user_id: current_user.id)
     end
 
+
+    def set_product
+        @product = Product.find(params[:id])
+    end
 
 end

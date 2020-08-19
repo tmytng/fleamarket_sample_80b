@@ -393,6 +393,7 @@ DEPENDENCIES
   dotenv-rails
   devise-i18n
   devise-i18n-views
+  dotenv-rails
   factory_bot_rails
   fog-aws
   font-awesome-rails

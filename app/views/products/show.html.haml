@@ -61,6 +61,8 @@
           = link_to "前の商品", "#"
         %li
           = link_to "後ろの商品", "#"
+      - if user_signed_in? && current_user.id == @product.user_id
+        = link_to '削除', product_path(@product.id), method: :delete
       .relatedItems
         = link_to "レディースをもっと見る", "#"
         .ProductLists-des
