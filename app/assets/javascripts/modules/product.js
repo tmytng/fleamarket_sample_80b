@@ -17,7 +17,7 @@ function appendChildrenBox(insertHTML) {
 function appendGrandchildrenBox(insertHTML) {
   let grandchildSelectHtml = '';
   grandchildSelectHtml = 
-    `<select class="categoly_form3" id="grandchildren_category" name="item[category_id]">
+    `<select class="categoly_form3" id="grandchildren_category" name="product[category_id]">
       <option value="" data-category="" >選択してください</option>
       ${insertHTML}</select>
     <i class = "fa fa-chevron-down"></i>`;

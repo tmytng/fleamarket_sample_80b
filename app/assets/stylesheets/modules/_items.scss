@@ -85,6 +85,19 @@ span {
     }
   }
 }
+
+.right_contents{
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+.right_contents:hover {
+  color: #ffb340;
+}
 // カテゴリー一覧
 
 .categoryBtn {
