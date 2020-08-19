@@ -26,5 +26,6 @@ Rails.application.routes.draw do
       delete 'delete', to: 'credit_cards#delete'
     end
   end
+  resources :users, only: :show
 end
 
