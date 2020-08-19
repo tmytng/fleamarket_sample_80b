@@ -78,13 +78,12 @@
           = link_to "購入する", '#', class: "buy_btn"
       - elsif user_signed_in? && current_user.id == @product.user_id
         .buy_box
-          = "出品者は自身の商品を購入することはできません。"
       - else
         .buy_box
           = "商品を購入するにはユーザーログインが必要です。"
       - if user_signed_in? && current_user.id == @product.user_id
         .edit_box
-          = link_to "商品情報を編集する", '#', class: "edit_btn"
+          = link_to "出品情報を編集する", edit_product_path, class: "edit_btn"
       .relatedItems
         = link_to "レディースをもっと見る", "#"
         .ProductLists-des
