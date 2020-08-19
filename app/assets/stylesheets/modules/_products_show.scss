@@ -234,3 +234,59 @@
     }
   }
 }
+
+.appBanner {
+  background-image: url(/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  .inner {
+  color: #fff;
+  text-align: center;
+  &__title {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  &__text {
+    font-size: 35px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  }
+  &__icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
+    & a {
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+  .bgIcon {
+    position: absolute;
+    top: 0;
+    right: 265px
+  }
+  }
+}
+
+.buy_box{
+  display: flex;
+  justify-content: center;
+  .buy_btn{
+    font-size: 26px;
+    color: white;
+    background-color: #3CCACE;
+    border-bottom: solid 2px #3CCACE;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10%;
+    padding: 5px 10px;
+    margin-top: 10px;
+  }
+}
+

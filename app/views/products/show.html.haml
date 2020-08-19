@@ -75,7 +75,7 @@
               = "次の商品"
       - if user_signed_in? && current_user.id != @product.user_id
         .buy_box
-          = link_to "購入する", '#', class: "buy_btn"
+          = link_to "購入する", product_credit_card_path(@product.id), class: "buy_btn"
       - elsif user_signed_in? && current_user.id == @product.user_id
         .buy_box
       - else
@@ -84,6 +84,9 @@
       - if user_signed_in? && current_user.id == @product.user_id
         .edit_box
           = link_to "出品情報を編集する", edit_product_path, class: "edit_btn"
+      - if user_signed_in? && current_user.id == @product.user_id
+        .edit_box
+          = link_to '削除', product_path(@product.id), method: :delete
       .relatedItems
         = link_to "レディースをもっと見る", "#"
         .ProductLists-des

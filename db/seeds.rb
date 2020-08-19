@@ -393,6 +393,7 @@
 #   birth_day: '2020-06-01'
 #   )
 
+
 # # ダミーデータ（プロダクト）
 
 #   p "Create Products"
@@ -491,3 +492,4 @@
 #     images: https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg,
 #     product_id: 5
 #   )
+
