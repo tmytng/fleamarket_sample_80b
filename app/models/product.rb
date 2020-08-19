@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
 
     has_many :product_imgs , dependent: :destroy
+
     belongs_to :category
     has_many :brands
+
     belongs_to :user
     accepts_nested_attributes_for :product_imgs, limit: 10, allow_destroy: true
     accepts_nested_attributes_for :brands
@@ -31,7 +33,7 @@ class Product < ApplicationRecord
 
     enum shipping_days:{
         '---':      0,  #---
-        days1_2:    1,  #1日~2日で発送
+        days1_2:    1,  #
         days2_3:    2,  #2日~3日で発送
         days4_7:    3,  #4日~7日で発送
     }

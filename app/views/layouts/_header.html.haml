@@ -2,7 +2,7 @@
   .headerInner
     .mainHeader
       .icon
-        = link_to "#" do
+        = link_to root_path do
           = image_tag 'logo/logo.png', alt: 'ロゴ'
       .searchBox
         -# = form_with model: @product do |f|
@@ -28,10 +28,11 @@
         .listsLeft__item
           = link_to "ブランド", "#", class: "brandBtn"
       .listsRight
-        -# - if user_signed_in?
-        -#   = link_to "ログアウト", destroy_user_session_path, method: :delete
-        -#   - else
-        .listsRight__item.listsRight__item--login
-          = link_to "ログイン", "#"
-        .listsRight__item.listsRight__item--new
-          = link_to "新規会員登録", "#"
+        - if user_signed_in?
+          .listsRight__item.listsRight__item--logout
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .listsRight__item.listsRight__item--login
+            = link_to "ログイン", new_user_session_path, method: :get
+          .listsRight__item.listsRight__item--new
+            = link_to "新規会員登録", new_user_registration_path, method: :get

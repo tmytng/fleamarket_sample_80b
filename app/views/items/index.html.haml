@@ -89,7 +89,9 @@
             %figure.productList--img
               = image_tag 'pict/no-image-available.jpg', alt: 'no image'
             .productList--body
-              %h3.name テスト
+              - @products.each do |product|
+                = product.name
+              -# %h3.name テスト
               .details
                 %ul
                   %li 10000円
@@ -221,11 +223,5 @@
                     %i.fa.fa-star.likeIcon
                     1
                 %p (税込)
-%aside.appBanner
-  .inner
-    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text 今すぐ無料ダウンロード！
-    .inner__icon
-      = link_to image_tag("icon/icon_apple.png", class:"bannerBtn")
-      = link_to image_tag("icon/icon_google.png", class:"bannerBtn")
+= render "layouts/appBanner"
 = render "layouts/footer"

@@ -8,10 +8,10 @@
           .itemBox__body
             %ul
               %li
-                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}/
+                = image_tag 'pict/no-image-available.jpg'
                 %ul
                   %li
-                    %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", :width => "75"}/
+                    = image_tag 'pict/no-image-available.jpg'
           .itemBox__price
             %span
               ¥10000
@@ -30,11 +30,11 @@
                 %tr
                   %th カテゴリー
                   %td
-                    %a{:href => "#"} レディース
+                    = link_to "レディース", "#"
                     %br/
-                    %a{:href => "#"} トップス
+                    = link_to "トップス", "#"
                     %br/
-                    %a{:href => "#"} Tシャツ/カットソー(半袖/袖なし)
+                    = link_to "Tシャツ/カットソー(半袖/袖なし)", "#"
                 %tr
                   %th ブランド
                   %td
@@ -50,43 +50,29 @@
                 %tr
                   %th 発送元の地域
                   %td
-                    %a{:href => "#"} 北海道
+                    = link_to "北海道", "#"
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
+      .buy_box
+        = link_to "購入する", product_credit_card_path(@product.id), class: "buy_btn"
       %ul.links
         %li
-          %a{:href => "#"}
-            %i.fa.fa-angle-left
-            %span
-            前の商品
+          = link_to "前の商品", "#"
         %li
-          %a{:href => "#"}
-            %span 後ろの商品
-            %i.fa.fa-angle-right
+          = link_to "後ろの商品", "#"
       .relatedItems
-        %a{:href => "#"} レディースをもっと見る
-        .productLists
+        = link_to "レディースをもっと見る", "#"
+        .ProductLists-des
           .productList
-            %a{:href => "/products/1"}
+            = link_to "/products/1" do
               %figure.productList--img
-                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+                = image_tag 'pict/no-image-available.jpg'
               .productList--body
                 %h3.name product1
                 .details
                   %ul
                     %li 10000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      1
                   %p (税込)
-%aside.appBanner
-  .inner
-    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text 今すぐ無料ダウンロード！
-    .inner__icon
-      %a{:href => "#"}
-        %img.linkIcon.aBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
-      %a{:href => "#"}
-        %img.linkIcon.gBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+= render "layouts/appBanner"
 = render "layouts/footer"

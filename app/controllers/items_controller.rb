@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def index
+    @products = Product.all
+  end
+
   def set_parents
     @parents = Category.where(ancestry: nil)
   end

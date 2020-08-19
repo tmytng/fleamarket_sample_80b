@@ -1,31 +1,16 @@
-!!!
-%html{:lang => "ja-JP"}
-  %head
-  %link{:href => "sign_in.scss", :rel => "stylesheet"}/
-  %body
-    %header
-      .single-container
-        .single-header
-          = link_to "" do
-            %img{alt: "image", src: "/assets/logo.png"}/
-    .Form-top
-      =link_to "新規会員登録", "#", class: "new_account"
-    .Form-main
-      .Form-box
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .Form-box__title
-            %h2 ログインはこちら
-          .Form-box__field
-            %p メールアドレス
-            = f.email_field :email, autofocus: true, autocomplete: "email"
-          .Form-box__field
-            %p パスワード
-            = f.password_field :password, autocomplete: "current-password"
-          -# - if devise_mapping.rememberable?
-          -#   .Form-box__field
-          -#     = f.check_box :remember_me
-          -#     = f.label :remember_me
-          .Form-box__btn
-            = f.submit "ログイン", class: "btn"
-        -# = render "devise/shared/links"
-
+.signinHeader
+  = link_to image_tag("logo/logo.png"), root_path
+.signinMain
+  %h2 ログインはこちら
+  .signinForm
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+      = f.label :email, "メールアドレス："
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "signinField"
+      .field
+      = f.label :email, "パスワード："
+      = f.password_field :password, autocomplete: "current-password", class: "signinField"
+      .field
+      = f.submit "ログイン", class: "signinBtn"
+  .signinNew
+    =link_to "新規会員登録", new_user_registration_path, method: :get, class: "new_account"

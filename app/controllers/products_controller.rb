@@ -4,12 +4,16 @@ class ProductsController < ApplicationController
 
     def index
         @products = Product.all.order("id DESC").limit(10)
+
         @products = Product.includes(:product_imgs).order('created_at DESC')
+
     end
 
     def new
         @product = Product.new
+
         @product.product_imgs.build
+
         @parent = Category.where(id: 1..13)
         
     end
@@ -28,6 +32,7 @@ class ProductsController < ApplicationController
     end
 
     def show
+        @product = Product.find(params[:id])
     end
 
     

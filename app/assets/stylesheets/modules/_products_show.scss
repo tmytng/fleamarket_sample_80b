@@ -1,7 +1,7 @@
 .showMain {
   padding: 40px;
   margin: 0 auto;
-  & :after {
+  &:after {
     display: block;
     content: "";
     clear: both;
@@ -23,27 +23,7 @@
           & ul {
             display: flex;
             position: relative;
-            .soldout {
-              // 不要かも
-              width: 0;
-              height: 0;
-              border-style: solid;
-              border-width: 150px 150px 0 0;
-              border-color: #3CCACE transparent transparent transparent;
-              position: absolute;
-              left: 0;
-              top: 0;
-            }
-            .soldoutText　{
-              color: #fff;
-              position: absolute;
-              left: 10px;
-              top: 10px;
-              font-weight: bold;
-              font-size: 24px;
-            }
-            & ul>li {
-              // 詳細不明
+            & li {
               display: flex;
               flex-direction: column;
               width: 560px;
@@ -69,20 +49,24 @@
             }
           }
         }
-      &__price {
-        margin: 24px 0 24px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        & >span {
-          font-size: 46px;
-          font-weight: bold;
-          margin: 0 10px 0 0;
+        &__price {
+          margin: 24px 0 24px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          & span {
+            font-size: 46px;
+            font-weight: bold;
+            margin: 0 10px 0 0;
+            color: black;
+          }
         }
-        &-detail {
-          font-size: 16px;
+        &__price-detail {
+          & span {
+            font-size: 16px;
+            font-weight: normal;
+          }
         }
-      }
       .itemDetail {
         line-height: 1.5;
         font-size: 18px;
@@ -118,8 +102,8 @@
     }
     }
     }
-    .link {
-      & :after {
+    .links {
+      &:after {
         display: block;
         content: "";
         clear: both;
@@ -136,7 +120,7 @@
       }
     }
     .relatedItems {
-      & :after {
+      &:after {
         display: block;
         content: "";
         clear: both;
@@ -160,35 +144,12 @@
           z-index: 1;
         }
       }
-      .productLists {
+      .ProductLists-des {
         .productList {
           margin: 0 0 10px;
           float: left;
           width: calc(100% / 3);
           background-color: #fff;
-          &--body {
-            background-color: white;
-            color: #333;
-            padding: 16px;
-            .name {
-              overflow: hidden;
-              line-height: 1.5;
-              font-size: 16px;
-              text-align: left;
-            }
-            .details {
-              font-size: 16px;
-              & ul {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-              }
-              & p {
-                font-size: 10px;
-                text-align: left;
-              }
-            }
-          }
           &--img {
             width: 220px;
             height: 150px;
@@ -206,6 +167,29 @@
               z-index: auto;
               height: 150px;
               object-fit: cover;
+            }
+          }
+          &--body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            & .name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            & .details {
+              font-size: 16px;
+              & ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              & p {
+                font-size: 10px;
+                text-align: left;
+              }
             }
           }
         }
@@ -251,3 +235,21 @@
   }
   }
 }
+
+.buy_box{
+  display: flex;
+  justify-content: center;
+  .buy_btn{
+    font-size: 26px;
+    color: white;
+    background-color: #3CCACE;
+    border-bottom: solid 2px #3CCACE;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10%;
+    padding: 5px 10px;
+    margin-top: 10px;
+  }
+}
+
