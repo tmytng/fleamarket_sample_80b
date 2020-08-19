@@ -406,7 +406,7 @@
 #     shipping_cost: 1,
 #     shipping_days: 1,
 #     prefecture: '東京都',
-#     trading_status: 0,,
+#     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
 #     category_id: 164
@@ -420,7 +420,7 @@
 #     shipping_cost: 2,
 #     shipping_days: 2,
 #     prefecture: '神奈川県',
-#     trading_status: 0,
+#     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
 #     category_id: 231
@@ -434,7 +434,7 @@
 #     shipping_cost: 2,
 #     shipping_days: 2,
 #     prefecture: '千葉県',
-#     trading_status: 0,
+#     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
 #     category_id: 427
@@ -448,7 +448,7 @@
 #     shipping_cost: 2,
 #     shipping_days: 2,
 #     prefecture: '埼玉県',
-#     trading_status: 0,
+#     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
 #     category_id: 663
@@ -462,34 +462,34 @@
 #     shipping_cost: 2,
 #     shipping_days: 2,
 #     prefecture: '茨城県',
-#     trading_status: 0,
+#     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
 #     category_id: 980
 #     )
 
-# # ダミーデータ（プロダクトイメージ）
+# ダミーデータ（プロダクトイメージ）
 # p "create Product-images"
-#   ProductImgs.create!(
-#     images: https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg,
+#   ProductImg.create!(
+#     image: "dummy.jpg",
 #     product_id: 1
 #   )
 
-#   ProductImgs.create!(
-#     images: https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg,
+#   ProductImg.create!(
+#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
 #     product_id: 2
 #   )
 
-#   ProductImgs.create!(
-#     images: https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg,
+#   ProductImg.create!(
+#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
 #     product_id: 3
 #   )
-#   ProductImgs.create!(
-#     images: https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg,
+#   ProductImg.create!(
+#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
 #     product_id: 4
 #   )
-#   ProductImgs.create!(
-#     images: https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg,
+#   ProductImg.create!(
+#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
 #     product_id: 5
 #   )
 
