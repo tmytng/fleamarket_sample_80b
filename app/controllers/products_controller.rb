@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
         @product.product_imgs.build
         # @product.brands.build
         @parent = Category.where(id: 1..13)
-        
+
     end
 
     def create
@@ -68,9 +68,15 @@ class ProductsController < ApplicationController
     end
 
     #親カテゴリー
-    def set_category  
+    def set_category
         @category_parent_array = Category.where(ancestry: nil)
     end
+
+    private
+
+    def set_product
+      @product = Product.find(params[:id])
+  end
 
     def product_params
         params.require(:product)
@@ -82,11 +88,6 @@ class ProductsController < ApplicationController
                 brands_attributes: [:name, :id]
             )
             .merge(user_id: current_user.id)
-    end
-
-
-    def set_product
-        @product = Product.find(params[:id])
     end
 
 end
