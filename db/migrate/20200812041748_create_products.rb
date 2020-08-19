@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :shipping_days
       t.string :prefecture
       t.string :trading_status
-      # t.references :category, foreign_key: true, null: false
+      t.references :category, foreign_key: true, null: false
       t.references :brand, foreign_key: true
       t.references :user, foreign_key: true, null: false
       t.timestamps
