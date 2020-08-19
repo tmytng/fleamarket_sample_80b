@@ -7,13 +7,13 @@
           %h2.itemBox__name
             = @product.name
           .itemBox__body
-            -# %ul
-            -#   %li
-            -#     = image_tag @product_img.image
-            -#     %ul
-            -#       - @product.product_imgs.each do |product_img|
-            -#         %li
-            -#           = image_tag @product_img.image
+            %ul
+              %li
+                -# = image_tag @product.image.url
+                %ul
+                  -# - @product.product_imgs.each do |product_img|
+                    %li
+                      -# = image_tag @product_img.image
           .itemBox__price
             %span
               = "#{@product.price}円"
