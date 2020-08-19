@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+
     before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
     before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :buy]
 
@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params)
-        # binding.pry
         if @product.save
             params[:product_img][:image].each do |image|
                 @product.photos.create(image: image, product_id: @product.id)
@@ -33,22 +32,22 @@ class ProductsController < ApplicationController
     end
 
     def show
-      @product = Product.find(params[:id])
-      # @product_img = ProductImg.find(@product.id)
+        @product = Product.find(params[:id])
+        # @product_img = ProductImg.find(@product.id)
     end
 
     def edit
-      @product = Product.find(params[:id])
+        @product = Product.find(params[:id])
     end
 
     def update
-      @product = Product.find(params[:id])
-      @product.update(product_params)
-      if @item.update(item_params)
-        redirect_to @item
-      else
-        render :edit
-      end
+        @product = Product.find(params[:id])
+        @product.update(product_params)
+        if @item.update(item_params)
+            redirect_to @item
+        else
+            render :edit
+        end
     end
 
     def destroy
@@ -58,9 +57,6 @@ class ProductsController < ApplicationController
             redirect_to product_path(@product.id)
         end
     end
-
-
-private
 
     #jsonで親の名前で検索し、紐づく子カテゴリーの配列を取得
     def get_category_children
@@ -72,7 +68,6 @@ private
         @category_grandchildren = Category.find(params[:child_id]).children
     end
 
-    # private
     #親カテゴリー
     def set_category  
         @category_parent_array = Category.where(ancestry: nil)

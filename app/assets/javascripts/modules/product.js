@@ -36,13 +36,15 @@ $(document).on("change","#parent_category", function() {
       dataType: 'json'
     })
     .done(function(children) {
-      //親カテゴリーが変更されたら、子/孫カテゴリー、サイズを削除し、初期値にする
+      //親カテゴリーが変更されたら、子/孫カテゴリーを削除し、初期値にする
       $("#children_box").empty();
       $("#grandchildren_box").empty();
+      //上の処理の後に子カテの情報を持ったフォームが作成される。
       let insertHTML = '';
       children.forEach(function(children) {
         insertHTML += appendOption(children);
       });
+      console.log(children)
       appendChildrenBox(insertHTML);
     })
     .fail(function() {
