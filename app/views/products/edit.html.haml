@@ -3,12 +3,12 @@
   .edit-main
     .contentRight
       .topContent
-        = form_with model: @product, url:products_path do |f|
+        = form_with model: @product do |f|
           .uploader-info
             .form-field
               = f.label :name, "出品画像", class: "label-text"
               %span 必須
-              .infomation 最大10枚までアップロードできます
+              .information 最大10枚までアップロードできます
               .img_zone
               = f.fields_for :product_imgs do |image|
                 .dropzone-container.clearfix
@@ -18,6 +18,7 @@
                       .input_area
                         = fa_icon 'camera'
                         = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
+                        = f.hidden_field :image_cache
                       %p ドラッグアンドドロップ
                   #preview2
                   .dropzone-area2
@@ -79,9 +80,9 @@
               販売手数料（10%）
           .submit-field
             .btn-box
-              = f.submit :変更する,id: "btn", class: "edit-btn", data: {"turbolinks"=>false}
+              = f.submit :変更する,id: "btn", class: "edit-btn"
             .btn-box
-              = link_to "もどる", root_path, class: "back-btn"
+              = link_to "もどる", :back, class: "back-btn"
           .notification
             .notification__message
               = link_to("禁止されている出品", "＃")
@@ -99,4 +100,3 @@
               に同意したことになります。
 = render "layouts/appBanner"
 = render "layouts/no-purchase-footer"
--# for check

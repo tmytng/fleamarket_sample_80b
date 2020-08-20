@@ -31,18 +31,13 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
         @brand = Brand.find(@product.id)
     end
 
-    def show
-        @product_img = @product.product_imgs.first
-        @brand = Brand.find(@product.id)
-    end
-
     def edit
     end
 
     def update
       if @product.user_id == current_user.id
         @product.update(product_params)
-        redirect_to @product
+        redirect_to root_path
         else
           render :edit
         end
@@ -83,10 +78,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
                 :size, :shipping_cost, :shipping_days,
                 :prefecture, :trading_status,
                 :category_id,
-                product_imgs_attributes: [:image, :id],
+                product_imgs_attributes: [:image, :image_cache, :id],
                 brands_attributes: [:name, :id]
             )
             .merge(user_id: current_user.id)
     end
 
 end
+
+
