@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     def new
         @product = Product.new
         @product.product_imgs.build
-        # @product.brands.build
+        @product.brands.build
         @parent = Category.where(id: 1..13)
 
     end
@@ -75,8 +75,8 @@ class ProductsController < ApplicationController
     private
 
     def set_product
-      @product = Product.find(params[:id])
-  end
+        @product = Product.find(params[:id])
+    end
 
     def product_params
         params.require(:product)
