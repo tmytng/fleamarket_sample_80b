@@ -14,6 +14,7 @@
           配送先住所
           .user_box__content--info
             = @delivery.prefecture
+            = @delivery.city
             = @delivery.address
             = @delivery.buiding_name
         .user_box__content
@@ -25,6 +26,8 @@
               .product_bar__info
                 = link_to "詳細", product_path(product.id)
       .card_box
+        .card_pages
+          = link_to "ログアウト", destroy_user_session_path
         .card_pages
           = link_to "クレジットカードの登録", new_credit_card_path
         .card_pages
