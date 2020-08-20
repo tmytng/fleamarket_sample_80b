@@ -88,4 +88,3 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
     end
 
 end
-# for check
