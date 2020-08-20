@@ -1,11 +1,10 @@
 class ProductsController < ApplicationController
 
-    before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-    before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :buy]
+before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :buy]
 
     def index
         @products = Product.all.order("id DESC").limit(10)
-
         @products = Product.includes(:product_imgs).order('created_at DESC')
 
     end
@@ -13,7 +12,7 @@ class ProductsController < ApplicationController
     def new
         @product = Product.new
         @product.product_imgs.build
-        # @product.brands.build
+        @product.brands.build
         @parent = Category.where(id: 1..13)
 
     end
@@ -32,7 +31,8 @@ class ProductsController < ApplicationController
 
     def show
         @product = Product.find(params[:id])
-        # @product_img = ProductImg.find(@product.id)
+        @product_img = @product.product_imgs.first
+        @brand = Brand.find(@product.id)
     end
 
     def edit
@@ -75,8 +75,8 @@ class ProductsController < ApplicationController
     private
 
     def set_product
-      @product = Product.find(params[:id])
-  end
+        @product = Product.find(params[:id])
+    end
 
     def product_params
         params.require(:product)
@@ -91,3 +91,4 @@ class ProductsController < ApplicationController
     end
 
 end
+# for check

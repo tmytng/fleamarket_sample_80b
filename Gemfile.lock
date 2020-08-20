@@ -119,12 +119,12 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    enum_help (0.0.17)
-      activesupport (>= 3.0.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.76.0)
@@ -134,8 +134,6 @@ GEM
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
     ffi (1.13.1)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     fog-aws (3.6.6)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -388,12 +386,10 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
-  enum_help
-  factory_bot_rails
-  dotenv-rails
   devise-i18n
   devise-i18n-views
   dotenv-rails
+  enum_help
   factory_bot_rails
   fog-aws
   font-awesome-rails
@@ -408,8 +404,8 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
-  rails-i18n
   rails-controller-testing
+  rails-i18n
   rspec-rails (~> 4.0.0.beta2)
   sass-rails (~> 5)
   selenium-webdriver

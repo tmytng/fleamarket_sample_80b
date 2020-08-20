@@ -7,13 +7,13 @@
           %h2.itemBox__name
             = @product.name
           .itemBox__body
-            -# %ul
-            -#   %li
-            -#     = image_tag @product_img.image
-            -#     %ul
-            -#       - @product.product_imgs.each do |product_img|
-            -#         %li
-            -#           = image_tag @product_img.image
+            %ul
+              %li
+                = image_tag @product_img.image_url
+                %ul
+                  - @product.product_imgs.each do |product_img|
+                    %li
+                      = image_tag product_img.image_url
           .itemBox__price
             %span
               = "#{@product.price}円"
@@ -43,7 +43,7 @@
                 %tr
                   %th ブランド
                   %td
-                    = @product.brand_id
+                    = @brand.name
                 %tr
                   %th 商品のサイズ
                   %td
@@ -59,7 +59,7 @@
                 %tr
                   %th 発送元の地域
                   %td
-                    = @product.prefecture
+                    = @product.prefecture_i18n
                 %tr
                   %th 発送日の目安
                   %td
@@ -84,18 +84,6 @@
       - else
         .buy_box
           = "商品を購入するにはユーザーログインが必要です。"
-      .relatedItems
-        = link_to "レディースをもっと見る", "#"
-        .ProductLists-des
-          .productList
-            = link_to "/products/1" do
-              %figure.productList--img
-                = image_tag 'pict/no-image-available.jpg'
-              .productList--body
-                %h3.name product1
-                .details
-                  %ul
-                    %li 10000円
-                  %p (税込)
+
 = render "layouts/appBanner"
 = render "layouts/footer"
