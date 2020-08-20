@@ -53,7 +53,7 @@
             .form-field
               = f.label :name, "商品の状態", class: "label-text"
               %span 必須
-              = f.select  :condition, Product.conditions.keys.map {|k| [I18n.t("enums.product.condition.#{k}"), k]}, {}, { class: "selectform_bl"}
+              = f.select :condition, Product.conditions.keys.map {|k| [I18n.t("enums.product.condition.#{k}"), k]}, {}, { class: "selectform_bl"}
           .shipping-info
             %h2 配送について
             .form-field
@@ -63,7 +63,7 @@
             .form-field
               = f.label :name, "発送元の地域", class: "label-text"
               %span 必須
-              = f.collection_select :prefecture, JpPrefecture::Prefecture.all, :code, :name, prompt:"---", class: "selectform_bl"
+              = f.select :prefecture, Product.prefectures.keys.map {|k| [I18n.t("enums.product.prefecture.#{k}"), k]}, {}, { class: "selectform_bl"}
             .form-field
               = f.label :name, "発送までの日数", class: "label-text"
               %span 必須
@@ -99,3 +99,4 @@
               に同意したことになります。
 = render "layouts/appBanner"
 = render "layouts/no-purchase-footer"
+-# for check

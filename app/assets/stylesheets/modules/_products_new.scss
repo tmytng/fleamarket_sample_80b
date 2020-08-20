@@ -15,8 +15,7 @@
       flex-direction: column;
       .uploader-info, .product-info,
       .product-description,
-      .shipping-info, .price-info
-        {
+      .shipping-info, .price-info {
         padding: 16px 40px 16px;
         border-bottom: 1px solid #efefef;
         .label-text {
@@ -37,7 +36,7 @@
             display:block;
             width: 100%;
             margin: 6px 0;
-          }
+        }
         .selectform_bl {
           display:block;
           width: 100%;
@@ -89,7 +88,5 @@
         }
       }
     }
-    }
-    }
-
-
+  }
+}
