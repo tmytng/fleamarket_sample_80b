@@ -1,24 +1,34 @@
 %link{:href => "show.scss", :rel => "stylesheet"}/
 %body
-  .Mainwrapper
-    .Maincontainer
+  .Main_wrapper
+    .Main_container
       .Information
-        プロフィール
-      .Secondarycontent
-        .Secondarycontent__inner
+        マイページ
+      .Secondary_content
+        .Secondary_content__inner
           = image_tag "pict/member_photo_noimage_thumb.png", alt: "icon", class: "profile"
-          %input.username{:type => "text"}
-      .Formbox
-        .Formbox__form
-          %textarea{placeholder: "自己紹介の記入をお願いします。", class: "profile_text"}
-        .Formbox__btn
-          %button.edit{:type => "submit"} 
-            変更する
+        .user_name
+          = @nickname
+      .user_box
+        .user_box__content
+          配送先住所
+          .user_box__content--info
+            = @delivery.prefecture
+            = @delivery.city
+            = @delivery.address
+            = @delivery.buiding_name
+        .user_box__content
+          出品商品履歴
+          - @products.each do |product|
+            .product_bar
+              .product_bar__name
+                = product.name
+              .product_bar__info
+                = link_to "詳細", product_path(product.id)
+      .card_box
+        .card_pages
+          = link_to "ログアウト", destroy_user_session_path
         .card_pages
           = link_to "クレジットカードの登録", new_credit_card_path
         .card_pages
           = link_to "クレジットカードの削除", credit_cards_path
-        -# = form_with(model:, local: true) do |f|
-        -#   = f.text_field :nickname
-        -#   = f.text_area :profile, { class: "profile_text"}
-        -#   = f.submit "変更する"
