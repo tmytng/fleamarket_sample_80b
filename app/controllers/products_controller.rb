@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
 
     def index
         @products = Product.all.order("id DESC").limit(10)
-
         @products = Product.includes(:product_imgs).order('created_at DESC')
 
     end
@@ -32,7 +31,7 @@ class ProductsController < ApplicationController
 
     def show
         @product = Product.find(params[:id])
-        @product_img = ProductImg.find(@product.id)
+        @product_img = @product.product_imgs.first
     end
 
     def edit

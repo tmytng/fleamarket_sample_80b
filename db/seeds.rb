@@ -335,7 +335,9 @@ c = 0
 @parents.each do |parent|
   children[c].each do |child|
     parent.children.create(name: child)
-    end
+  
+  end
+
   c += 1
 end
 
@@ -468,28 +470,51 @@ end
 #     category_id: 980
 #     )
 
-# ダミーデータ（プロダクトイメージ）
-# p "create Product-images"
-#   ProductImg.create!(
-#     image: "dummy.jpg",
-#     product_id: 1
-#   )
+# # ダミーデータ（プロダクトイメージ）
+# # p "create Product-images"
+# #   ProductImg.create!(
+# #     image: "dummy.jpg",
+# #     product_id: 1
+# #   )
 
-#   ProductImg.create!(
-#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
-#     product_id: 2
-#   )
+# #   ProductImg.create!(
+# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
+# #     product_id: 2
+# #   )
 
-#   ProductImg.create!(
-#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
-#     product_id: 3
-#   )
-#   ProductImg.create!(
-#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
-#     product_id: 4
-#   )
-#   ProductImg.create!(
-#     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
-#     product_id: 5
-#   )
+# #   ProductImg.create!(
+# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
+# #     product_id: 3
+# #   )
+# #   ProductImg.create!(
+# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
+# #     product_id: 4
+# #   )
+# #   ProductImg.create!(
+# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
+# #     product_id: 5
+# #   )
 
+# # ダミーデータ(ブランド)
+
+#   p "Create Brands”
+#   Brand.create!(
+#     name: ’シャネル’,
+#   )
+#   p "Create Brands”
+#   Brand.create!(
+#     name: ’花王’,
+#   )
+#   p "Create Brands”
+#   Brand.create!(
+#     name: ’資生堂’,
+#   )
+#     p "Create Brands”
+#   Brand.create!(
+#     name: ’コーセー’,
+#   )
+#   p "Create Brands”
+#   Brand.create!(
+#     name: ’カネボウ’,
+#   )
+  
