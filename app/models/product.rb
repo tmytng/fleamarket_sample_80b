@@ -89,7 +89,6 @@ class Product < ApplicationRecord
         okinawa:    47
   }
 
-    # category idができたら編集予定→Category.products
     def previous
       Product.where("id < ?", self.id).order("id DESC").first
     end
