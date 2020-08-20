@@ -25,6 +25,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @nickname = current_user.nickname
+    @products = current_user.products
+    @delivery = current_user.delivery_destination
   end
 
   private
