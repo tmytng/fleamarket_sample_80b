@@ -20,9 +20,6 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
     def create
         @product = Product.new(product_params)
         if @product.save!
-            # params[:product_img][:image].each do |image|
-            #     @product.photos.create(image: image, product_id: @product.id)
-            # end
             redirect_to root_path
         else
             redirect_to new_product_path
