@@ -98,3 +98,5 @@ class Product < ApplicationRecord
     end
 
   end
+
+# for check
