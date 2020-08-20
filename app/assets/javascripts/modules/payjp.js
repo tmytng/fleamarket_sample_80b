@@ -1,7 +1,7 @@
 document.addEventListener( //
   "DOMContentLoaded", e => {
     if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
-      Payjp.setPublicKey("pk_test_da736b7cff593568d3f16be3"); //ここに公開鍵を直書き
+      Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); //ここに公開鍵を直書き
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
       btn.addEventListener("click", e => {
         e.preventDefault(); //ボタンを一旦無効化します
