@@ -1,0 +1,102 @@
+= render "layouts/header"
+.main
+  .exhibit-main
+    .contentRight
+      .topContent
+        = form_with model: @product, url:products_path do |f|
+          .uploader-info
+            .form-field
+              = f.label :name, "出品画像", class: "label-text"
+              %span 必須
+              .infomation 最大10枚までアップロードできます
+              .img_zone
+              = f.fields_for :product_imgs do |image|
+                .dropzone-container.clearfix
+                  #preview
+                  .dropzone-area
+                    = image.label :image, class: "dropzone-box", for: "upload-image" do
+                      .input_area
+                        = fa_icon 'camera'
+                        = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
+                      %p ドラッグアンドドロップ
+                  #preview2
+                  .dropzone-area2
+                    = image.label :image, class: "dropzone-box", for: "upload-image" do
+                      %p またはクリックしてファイルをアップロード
+          .product-info
+            .form-field
+              = f.label :name, "商品名", class: "label-text"
+              %span 必須
+              = f.text_field :name, placeholder: "商品名 (必須40文字まで)", id: "productr_name", class: "textform_bl"
+            .form-field
+              = f.label :name, "商品説明", class: "label-text"
+              %span 必須
+              = f.text_area :description, size: "73x7", placeholder: "商品の説明（必須1,000文字以内 (色、素材、重さ、定価、注意点など)", id: "product_introduction", class: "textarea_bl"
+          .product-description
+            %h2 商品の詳細
+            .form-field
+              = f.label :name, "カテゴリー", class: "label-text"
+              %span 必須
+            .categoly_form#partent_box
+              = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box selectform_bl", id: "parent_category"}
+              -# = fa_icon 'chevron-down'
+            #children_box
+            #grandchildren_box
+            .form-field
+              = f.label :name, "商品サイズ", class: "label-text"
+              %span 必須
+              = f.text_field :size, placeholder:"サイズを入力してください", class: "textform_bl"
+            .form-field
+              = f.label :name, "ブランド", class: "label-text"
+              = f.fields_for :brands, {} do |b|
+                = b.text_field :name, {}
+            .form-field
+              = f.label :name, "商品の状態", class: "label-text"
+              %span 必須
+              = f.select :condition, Product.conditions.keys.map {|k| [I18n.t("enums.product.condition.#{k}"), k]}, {}, { class: "selectform_bl"}
+          .shipping-info
+            %h2 配送について
+            .form-field
+              = f.label :name, "配送料の負担", class: "label-text"
+              %span 必須
+              = f.select :shipping_cost, Product.shipping_costs.keys.map {|k| [I18n.t("enums.product.shipping_cost.#{k}"), k]}, {}, { class: "selectform_bl"}
+            .form-field
+              = f.label :name, "発送元の地域", class: "label-text"
+              %span 必須
+              = f.select :prefecture, Product.prefectures.keys.map {|k| [I18n.t("enums.product.prefecture.#{k}"), k]}, {}, { class: "selectform_bl"}
+            .form-field
+              = f.label :name, "発送までの日数", class: "label-text"
+              %span 必須
+              = f.select :shipping_days,Product.shipping_days.keys.map {|k| [I18n.t("enums.product.shipping_days.#{k}"), k]},{}, { class: "selectform_bl"}
+          .price-info
+            %h2 価格（¥300〜9,999,999）
+            .form-field
+              = f.label :name, "販売価格", class: "label-text"
+              %span 必須
+              %span ¥
+              = f.text_field :price, id: "pricebox", placeholder: "例） 300", class: "textform_bl"
+            .price-info__calc
+              販売手数料（10%）
+          .submit-field
+            .btn-box
+              = f.submit :出品する,id: "btn", class: "exhibit-btn", data: {"turbolinks"=>false}
+            .btn-box
+              = link_to "もどる", root_path, class: "back-btn"
+          .notification
+            .notification__message
+              = link_to("禁止されている出品", "＃")
+              、
+              = link_to("行為", "＃")
+              を必ずご確認ください。
+              %br
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              %br
+              = link_to("偽ブランドの販売", "＃")
+              は犯罪であり処罰される可能性があります。
+              %br
+              また、出品をもちまして
+              = link_to("加盟店規約", "＃")
+              に同意したことになります。
+= render "layouts/appBanner"
+= render "layouts/no-purchase-footer"
+-# for check
