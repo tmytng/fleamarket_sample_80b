@@ -27,22 +27,24 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
     end
 
     def show
-        @product = Product.find(params[:id])
+        @product_img = @product.product_imgs.first
+        @brand = Brand.find(@product.id)
+    end
+
+    def show
         @product_img = @product.product_imgs.first
         @brand = Brand.find(@product.id)
     end
 
     def edit
-        @product = Product.find(params[:id])
     end
 
     def update
-        @product = Product.find(params[:id])
+      if @product.user_id == current_user.id
         @product.update(product_params)
-        if @item.update(item_params)
-            redirect_to @item
+        redirect_to @product
         else
-            render :edit
+          render :edit
         end
     end
 
