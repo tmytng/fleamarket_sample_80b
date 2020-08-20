@@ -335,7 +335,9 @@ c = 0
 @parents.each do |parent|
   children[c].each do |child|
     parent.children.create(name: child)
+  
   end
+
   c += 1
 end
 
