@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_001904) do
     t.string "size"
     t.integer "shipping_cost", null: false
     t.integer "shipping_days", null: false
-    t.string "prefecture"
+    t.integer "prefecture", null: false
     t.boolean "trading_status", default: false
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
