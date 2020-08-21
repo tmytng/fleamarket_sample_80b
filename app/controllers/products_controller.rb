@@ -35,8 +35,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
     end
 
     def update
-      if @product.user_id == current_user.id
-        @product.update(product_params)
+      if @product.user_id == current_user.id && @product.update(product_params)
         redirect_to root_path
         else
           render :edit
