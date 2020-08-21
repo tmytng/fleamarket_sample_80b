@@ -27,22 +27,18 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
     end
 
     def show
-        @product = Product.find(params[:id])
         @product_img = @product.product_imgs.first
         @brand = Brand.find(@product.id)
     end
 
     def edit
-        @product = Product.find(params[:id])
     end
 
     def update
-        @product = Product.find(params[:id])
-        @product.update(product_params)
-        if @item.update(item_params)
-            redirect_to @item
+      if @product.user_id == current_user.id && @product.update(product_params)
+        redirect_to root_path
         else
-            render :edit
+          render :edit
         end
     end
 
@@ -66,8 +62,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
 
     #親カテゴリー
     def set_category
+        @product = Product.find(params[:id])
         @category_parent_array = Category.where(ancestry: nil)
-    end
+        @category_children_array = @product.category.parent.siblings
+        @category_grandchildren_array = @product.category.siblings
+
+      end
 
     private
 
@@ -81,11 +81,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
                 :size, :shipping_cost, :shipping_days,
                 :prefecture, :trading_status,
                 :category_id,
-                product_imgs_attributes: [:image, :id],
+                product_imgs_attributes: [:image, :image_cache, :id],
                 brands_attributes: [:name, :id]
             )
             .merge(user_id: current_user.id)
     end
 
 end
-# for check
+
+
