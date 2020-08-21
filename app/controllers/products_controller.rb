@@ -63,8 +63,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
 
     #親カテゴリー
     def set_category
+        @product = Product.find(params[:id])
         @category_parent_array = Category.where(ancestry: nil)
-    end
+        @category_children_array = @product.category.parent.siblings
+        @category_grandchildren_array = @product.category.siblings
+
+      end
 
     private
 
