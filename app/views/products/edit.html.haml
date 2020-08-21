@@ -44,18 +44,14 @@
           .product-description
             %h2 商品の詳細
             .form-field
-              = f.label :name, "現在のカテゴリー", class: "label-text"
-              .cat-select
-              = "#{@product.category.parent.parent.name}" "-" "#{@product.category.parent.name}" "-" "#{@product.category.name}"
-              = button_to "変更する", { method: :get, id: "edit_btn"}
-            .form-field--cat.displayNone
-              = f.label :name, "新しいカテゴリー", class: "label-text"
+              = f.label :name, "カテゴリー", class: "label-text"
               %span 必須
-            .categoly_form#partent_box.displayNone
-              = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box selectform_bl", id: "parent_category"}
-              -# = fa_icon 'chevron-down'
+            .categoly_form#partent_box
+              = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}, selected: @product.category.parent.parent.id),{}, { class: "parent_category_box selectform_bl", id: "parent_category"}
             #children_box
+              = f.select :category_id, options_for_select( @category_children_array.map{|c| [c[:name], c[:id]]}, selected: @product.category.parent.parent.id),{}, { class: "children_category_box selectform_bl", id: "children_category"}
             #grandchildren_box
+              = f.select :category_id, options_for_select( @category_grandchildren_array.map{|c| [c[:name], c[:id]]}, selected: @product.category),{}, { class: "grandchildren_category_box selectform_bl", id: "grandchildren_category"}
             .form-field
               = f.label :name, "商品サイズ", class: "label-text"
               %span 必須
