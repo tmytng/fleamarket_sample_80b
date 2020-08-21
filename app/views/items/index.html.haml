@@ -113,5 +113,11 @@
                   %ul
                     %li= "#{brand.product.price}円"
                   %p (税込)
+                  - if brand.product.trading_status == 1
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+
+
 = render "layouts/appBanner"
 = render "layouts/footer"
