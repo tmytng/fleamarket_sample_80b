@@ -27,11 +27,11 @@
               = f.label :"product_imgs_attributes_#{@product.product_imgs.length}_image", class: "label-box", id: "label-box--#{@product.product_imgs.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
-              = f.fields_for :images do |i|
+              = f.fields_for :product_imgs do |image|
 
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
-                = i.file_field :image, class: "hidden-field"
-                = i.check_box:_destroy, class: "hidden-checkbox"
+                = image.file_field :image, class: "hidden-field"
+                = image.check_box:_destroy, class: "hidden-checkbox"
 
                 //10個のfile_fieldを準備するに当たって、足りない分を表示
               - @product.product_imgs.length.upto(10) do |i|
