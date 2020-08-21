@@ -10,28 +10,32 @@
               %span 必須
               .information 最大10枚までアップロードできます。
               %ul
-                - @product.product_imgs.each do |product_img|
-                  %li
-                    = image_tag product_img.image_url
-                    %li
-                      = link_to "編集する", "#", id: "image-edit-Btn"
-                    %li
-                      = link_to "削除する", "#", id: "image-delete-Btn"
-              .img_zone
-              = f.fields_for :product_imgs do |image|
-                .dropzone-container.clearfix
-                  #preview
-                  .dropzone-area
-                    = image.label :image, class: "dropzone_box", for: "upload-image" do
-                      .input_area
-                        = fa_icon 'camera'
-                        = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
-                        = f.hidden_field :image_cache
-                      %p ドラッグアンドドロップ
-                  #preview2
-                  .dropzone-area2
-                    = image.label :image, multiple: true, class: "dropzone_box", for: "upload-image" do
-                      %p またはクリックしてファイルをアップロード
+                //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+              - @product.product_imgs.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
+            .label-content
+
+              //プレビューの数に合わせてforオプションを指定
+              = f.label :"product_imgs_attributes_#{@product.product_imgs.length}_image", class: "label-box", id: "label-box--#{@product.product_imgs.length}" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |i|
+
+                //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                = i.file_field :image, class: "hidden-field"
+                = i.check_box:_destroy, class: "hidden-checkbox"
+
+                //10個のfile_fieldを準備するに当たって、足りない分を表示
+              - @product.product_imgs.length.upto(10) do |i|
+                %input{name: "product[product_imgs_attributes][#{i}][image]", id: "product_imgs_attributes_#{i}_image", class:"hidden-field", type:"file"}
           .product-info
             .form-field
               = f.label :name, "商品名", class: "label-text"
