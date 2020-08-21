@@ -11,7 +11,9 @@
           = @nickname
       .user_box
         .user_box__content
-          配送先住所
+          .delivery_bar
+            %p 配送先住所
+            = link_to "配送先住所の登録", new_delivery_destination_path,class: 'delivery_info'
           .user_box__content--info
             = @delivery.prefecture
             = @delivery.city

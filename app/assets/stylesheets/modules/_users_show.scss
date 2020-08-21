@@ -52,6 +52,13 @@
       &__content{
         margin-bottom: 15px;
         font-size: 22px;
+        .delivery_bar{
+          display: flex;
+          justify-content: space-between;
+          .delivery-info{
+          display: inline-block;
+          }
+        }
         &--info{
           font-size: 18px;
           border: solid 2px #3CCACE;
