@@ -88,7 +88,7 @@
           .productList
             = link_to "/products/#{product.id}" do
               %figure.productList--img
-              　 = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+                = image_tag product.product_imgs[0].image.url, alt: 'no image'
               .productList--body
                 = product.name
                 .details
@@ -102,16 +102,16 @@
         = link_to "#" do
           %h3.title アーカイバ
       .productLists
-        - @products.each do |product|
+        - @brands.each do |brand|
           .productList
-            = link_to "/products/#{product.id}" do
+            = link_to "/products/#{brand.id}" do
               %figure.productList--img
-                = image_tag 'pict/no-image-available.jpg', alt: 'no image'
+                = image_tag brand.product.product_imgs[0].image.url, alt: 'no image'
               .productList--body
-                = product.name
+                = brand.product.name
                 .details
                   %ul
-                    %li= "#{product.price}円"
+                    %li= "#{brand.product.price}円"
                   %p (税込)
 = render "layouts/appBanner"
 = render "layouts/footer"

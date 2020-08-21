@@ -494,26 +494,3 @@ p "create Users"
 # #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
 # #     product_id: 5
 # #   )
-
-# # ダミーデータ(ブランド)
-
-#   p "Create Brands”
-#   Brand.create!(
-#     name: ’シャネル’,
-#   )
-#   p "Create Brands”
-#   Brand.create!(
-#     name: ’花王’,
-#   )
-#   p "Create Brands”
-#   Brand.create!(
-#     name: ’資生堂’,
-#   )
-#     p "Create Brands”
-#   Brand.create!(
-#     name: ’コーセー’,
-#   )
-#   p "Create Brands”
-#   Brand.create!(
-#     name: ’カネボウ’,
-#   )
