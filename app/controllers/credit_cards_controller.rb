@@ -14,11 +14,11 @@ class CreditCardsController < ApplicationController
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::Customer.create(
-      card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
-      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    customer = Payjp::Customer.create(
+    card: params['payjp-token'],
+    metadata: {user_id: current_user.id}
+    ) #念の為metadataにuser_idを入れましたがなくてもOK
+    @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to root_path
       else
@@ -36,7 +36,7 @@ class CreditCardsController < ApplicationController
       #登録された情報がない場合にカード登録画面に移動
       redirect_to action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
@@ -48,14 +48,14 @@ class CreditCardsController < ApplicationController
   def pay
     @product = Product.find(params[:id])
     card = CreditCard.find_by(user_id: current_user.id)
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     amount:  @product.price,
     customer: card.customer_id,
     currency: 'jpy',
     )
-    # product[:trading_status] = true
-    # product.save
+    product[:trading_status] = 1
+    product.save
   redirect_to action: 'done'
   end
 
@@ -71,7 +71,7 @@ class CreditCardsController < ApplicationController
     if card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
@@ -82,7 +82,7 @@ class CreditCardsController < ApplicationController
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
