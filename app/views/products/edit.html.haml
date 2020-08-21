@@ -8,7 +8,15 @@
             .form-field
               = f.label :name, "出品画像", class: "label-text"
               %span 必須
-              .information 最大10枚までアップロードできます
+              .information 最大10枚までアップロードできます。
+              %ul
+                - @product.product_imgs.each do |product_img|
+                  %li
+                    = image_tag product_img.image_url
+                    %li
+                      = link_to "編集する", "#", id: "image-edit-Btn"
+                    %li
+                      = link_to "削除する", "#",id: "image-delete-Btn"
               .img_zone
               = f.fields_for :product_imgs do |image|
                 .dropzone-container.clearfix
