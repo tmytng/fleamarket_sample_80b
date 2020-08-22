@@ -1,0 +1,55 @@
+.Form-main
+  .From-box
+    = form_with model: @delivery_destination, local: true do |f|
+      .From-box__title
+        %h2{class: "delivery_title"} 配送先住所登録
+      .From-box__field
+        .kana-box
+          .family_name_kana
+            = f.label :name, "苗字"
+            %span{class: "require"} 必須
+            = f.text_field :family_name, class: 'form half_form', placeholder: '例：山田'
+          .first_name_kana
+            = f.label :name, "名前"
+            %span{class: "require"} 必須
+            = f.text_field :first_name, class: 'form half_form', placeholder: '例：太郎'
+      .From-box__field
+        .kana-box
+          .family_name_kana
+            = f.label :name, "苗字カナ"
+            %span{class: "require"} 必須
+            = f.text_field :family_name_kana, class: 'form half_form', placeholder: '例：ヤマダ'
+          .first_name_kana
+            = f.label :name, "名前カナ"
+            %span{class: "require"} 必須
+            = f.text_field :first_name_kana, class: 'form half_form', placeholder: '例：タロウ'
+      .From-box__field
+        郵便番号
+        %span{class: "require"} 必須
+        = f.text_field :post_code, class: 'form', placeholder: '例:1010000(-なしで入力)'
+      .From-box__field
+        .kana-box
+          .family_name_kana
+            = f.label :name, "都道府県"
+            %span{class: "require"} 必須
+            = f.text_field :prefecture, class: 'form half_form', placeholder: '例：東京都'
+          .first_name_kana
+            = f.label :name, "市区町村"
+            %span{class: "require"} 必須
+            = f.text_field :city, class: 'form half_form', placeholder: '例：新宿区'
+      .From-box__field
+        .kana-box
+          .family_name_kana
+            = f.label :name, "番地"
+            %span{class: "require"} 必須
+            = f.text_field :address, class: 'form half_form', placeholder: '例：歌舞伎町◯丁目◯-◯'
+          .first_name_kana
+            = f.label :name, "建物名・号室"
+            %span{class: "require"} 必須
+            = f.text_field :buiding_name, class: 'form half_form', placeholder: '例：フリママンション101'
+      .From-box__field
+        = f.label :name, "電話番号"
+        %span{class: "require"} 必須
+        = f.text_field :phone_number, class: 'form', placeholder: '例：09022221111(-なしで入力)'
+      .From-box__btn
+        = f.submit value: '登録', class: 'signupBtn'

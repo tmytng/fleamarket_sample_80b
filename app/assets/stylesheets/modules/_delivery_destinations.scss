@@ -1,26 +1,28 @@
 .Form-main{
   display: flex;
   justify-content: center;
-  .From-box{
+}
+
+.Form-logo{
+  display: flex;
+  justify-content: center;
+}
+
+.From-box{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  background-color: white;
+  &__title{
+    text-align: center;
+  }
+  &__field{
+    width: 100%;
+    margin: auto;
+  }
+  &__btn{
     display: flex;
     justify-content: center;
-    width: 60%;
-    background-color: white;
-    &__title{
-      text-align: center;
-      margin: 20px 0;
-      .delivery_title{
-        font-size: 30px;
-      }
-    }
-    &__field{
-      width: 100%;
-      margin: auto;
-    }
-    &__btn{
-      display: flex;
-      justify-content: center;
-    }
   }
 }
 

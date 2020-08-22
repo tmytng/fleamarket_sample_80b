@@ -14,14 +14,14 @@
                 .dropzone-container.clearfix
                   #preview
                   .dropzone-area
-                    = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    = image.label :image, class: "dropzone_box", for: "upload-image" do
                       .input_area
                         = fa_icon 'camera'
                         = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
                       %p ドラッグアンドドロップ
                   #preview2
                   .dropzone-area2
-                    = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    = image.label :image, multiple: true, class: "dropzone_box", for: "upload-image" do
                       %p またはクリックしてファイルをアップロード
           .product-info
             .form-field
@@ -99,3 +99,4 @@
               に同意したことになります。
 = render "layouts/appBanner"
 = render "layouts/no-purchase-footer"
+-# for check2

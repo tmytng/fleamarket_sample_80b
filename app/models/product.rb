@@ -1,10 +1,8 @@
 class Product < ApplicationRecord
 
     has_many :product_imgs , dependent: :destroy
-    # accepts_nested_attributes_for :imgs, allow_destroy: true
     belongs_to :category
     has_many :brands
-
     belongs_to :user
     accepts_nested_attributes_for :product_imgs, limit: 10, allow_destroy: true
     accepts_nested_attributes_for :brands
@@ -98,3 +96,5 @@ class Product < ApplicationRecord
     end
 
   end
+
+# for check

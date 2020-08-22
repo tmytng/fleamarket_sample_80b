@@ -407,7 +407,7 @@ p "create Users"
 #     size: 'L',
 #     shipping_cost: 1,
 #     shipping_days: 1,
-#     prefecture: '東京都',
+#     prefecture: 36,
 #     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
@@ -421,7 +421,7 @@ p "create Users"
 #     size: 'S',
 #     shipping_cost: 2,
 #     shipping_days: 2,
-#     prefecture: '神奈川県',
+#     prefecture: 45,
 #     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
@@ -449,7 +449,7 @@ p "create Users"
 #     size: 'L',
 #     shipping_cost: 2,
 #     shipping_days: 2,
-#     prefecture: '埼玉県',
+#     prefecture: 8,
 #     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
@@ -463,34 +463,9 @@ p "create Users"
 #     size: 'S',
 #     shipping_cost: 2,
 #     shipping_days: 2,
-#     prefecture: '茨城県',
+#     prefecture: 12,
 #     trading_status: "false",
 #     brand_id: nil,
 #     user_id: 1,
 #     category_id: 980
 #     )
-
-# # ダミーデータ（プロダクトイメージ）
-# # p "create Product-images"
-# #   ProductImg.create!(
-# #     image: "dummy.jpg",
-# #     product_id: 1
-# #   )
-
-# #   ProductImg.create!(
-# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
-# #     product_id: 2
-# #   )
-
-# #   ProductImg.create!(
-# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
-# #     product_id: 3
-# #   )
-# #   ProductImg.create!(
-# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-6/008.jpg",
-# #     product_id: 4
-# #   )
-# #   ProductImg.create!(
-# #     image: "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",
-# #     product_id: 5
-# #   )

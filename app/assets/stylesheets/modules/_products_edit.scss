@@ -1,4 +1,4 @@
-.exhibit-main {
+.edit-main {
   padding: 40px;
   margin: 0 auto;
   &:after {
@@ -24,6 +24,12 @@
         }
         .form-field {
           padding: 16px 0;
+          .cat-select {
+            display: block;
+          }
+          .btn-bl {
+            display: block;
+          }
         }
         & h2 {
           font-size: 16px;
@@ -51,7 +57,7 @@
         padding: 16px 40px 16px;
         display: flex;
         justify-content: center;
-        .exhibit-btn{
+        .edit-btn{
           font-size: 26px;
           color: white;
           width: 60%;
