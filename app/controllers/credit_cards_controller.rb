@@ -54,8 +54,8 @@ class CreditCardsController < ApplicationController
     customer: card.customer_id,
     currency: 'jpy',
     )
-    product[:trading_status] = 1
-    product.save
+    @product[:trading_status] = 1
+    @product.save
   redirect_to action: 'done'
   end
 
