@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def show
     @nickname = current_user.nickname
     @products = current_user.products
-    @delivery = current_user.delivery_destination
+    # @delivery = current_user.delivery_destination
   end
 
   private
