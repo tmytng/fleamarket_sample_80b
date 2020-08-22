@@ -14,11 +14,13 @@
           .delivery_bar
             %p 配送先住所
             = link_to "配送先住所の登録", new_delivery_destination_path,class: 'delivery_info'
-          .user_box__content--info
-            = @delivery.prefecture
-            = @delivery.city
-            = @delivery.address
-            = @delivery.buiding_name
+          .address_bar
+            - unless @delivery == nil
+              .user_box__content--info
+                = @delivery.prefecture
+                = @delivery.city
+                = @delivery.address
+                = @delivery.buiding_name
         .user_box__content
           出品商品履歴
           - @products.each do |product|
