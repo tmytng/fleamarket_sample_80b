@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
-before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :buy]
+# before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+before_action :set_category, only: [:edit, :create, :update, :destroy]
+before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :buy, :set_category]
 
     def index
         @products = Product.all.order("id DESC").limit(10)
@@ -62,7 +63,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :purchase, :
 
     #親カテゴリー
     def set_category
-        @product = Product.find(params[:id])
+        # @product = Product.find(params[:id])
         @category_parent_array = Category.where(ancestry: nil)
         @category_children_array = @product.category.parent.siblings
         @category_grandchildren_array = @product.category.siblings
