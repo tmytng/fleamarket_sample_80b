@@ -45,11 +45,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null:false, unique: true|
-|expiration_year|integer|null:false|
-|expiration_month|integer|null:false|
-|security_code|integer|null:false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|null:false, foreign_key: true|
+|custemer_id|string|null:false|
+|card_id|integer|null:false|
+|created_at|integer|precion:6, null:false|
+|updated_at|integer|precion:6, null:false|
 
 ### Association
 - belongs_to :user
@@ -61,21 +61,20 @@
 |name|string|null: false|
 |price|string|null: false|
 |description|string|null: false|
-|condition|string|null: false|
+|condition|integer|null: false|
 |size|string|null: false|
 |shipping_cost|string|null: false|
 |shipping_days|string|null: false|
-|prefecture|string|null: false|
-|trading_status|enum|null: false|
+|prefecture_id|integer|null: false|
+|trading_status|boolean|null: false|
 |category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :product_imgs
 - belongs_to :category
-- belongs_to :brand
+- has_many :brands
 
 ## product_imgsテーブル
 
@@ -92,6 +91,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ansestory|string|
 
 ### Association
 - has_many :products
@@ -101,8 +101,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|brandid|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :products
-
-<!-- テスト -->
+- belongs_to :product
