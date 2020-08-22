@@ -44,10 +44,10 @@ before_action :set_edit_category, only: [:edit]
     end
 
     def destroy
-        if @product.destroy
-            redirect_to root_path
-        else
-            redirect_to product_path(@product.id)
+      if @product.user_id == current_user.id && @product.destroy
+        redirect_to root_path
+      else
+        redirect_to product_path(@product.id)
         end
     end
 
