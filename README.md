@@ -104,3 +104,5 @@
 
 ### Association
 - has_many :products
+
+<!-- テスト -->
