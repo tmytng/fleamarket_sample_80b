@@ -104,7 +104,7 @@ $(document).on('turbolinks:load', function () {
     inputs.push($(this));
     var img = $(`<div class= "img_view"><img></div>`);
     reader.onload = function (e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
+      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn delete">削除</div></div>');
       img.append(btn_wrapper);
       img.find('img').attr({
         src: e.target.result
