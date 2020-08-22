@@ -31,8 +31,6 @@
                 = link_to "詳細", product_path(product.id)
       .card_box
         .card_pages
-          = link_to "ログアウト", destroy_user_session_path
-        .card_pages
           = link_to "クレジットカードの登録", new_credit_card_path, data: {"turbolinks" => false}
         .card_pages
           = link_to "クレジットカードの削除", credit_cards_path
