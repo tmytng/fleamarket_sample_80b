@@ -355,45 +355,45 @@ g = 0
     end
 end
 
-# # ダミーデータ（ユーザー）
+# # # ダミーデータ（ユーザー）
 
-p "create Users"
-  User.create!(
-  email: 'user1@test.com',
-  password: '12345678',
-  password_confirmation: '12345678',
-  nickname: 'tarow',
-  profile: 'テスト用ユーザーアカウント',
-  family_name: '新宿',
-  first_name: '太郎',
-  family_name_kana: 'しんじゅく',
-  first_name_kana: 'たろう',
-  birth_day: '2020-08-01'
-  )
-  User.create!(
-  email: 'user2@test.com',
-  password: '12345678',
-  password_confirmation: '12345678',
-  nickname: 'tarow2',
-  profile: 'テスト用ユーザーアカウント2',
-  family_name: '渋谷',
-  first_name: '太郎',
-  family_name_kana: 'シブヤ',
-  first_name_kana: 'タロ',
-  birth_day: '2020-07-01'
-  )
-  User.create!(
-  email: 'user3@test.com',
-  password: '12345678',
-  password_confirmation: '12345678',
-  nickname: 'testman',
-  profile: 'テスト用ユーザーアカウント3',
-  family_name: '池袋',
-  first_name: '太郎',
-  family_name_kana: 'イケブクロ',
-  first_name_kana: 'タロ',
-  birth_day: '2020-06-01'
-  )
+# p "create Users"
+#   User.create!(
+#   email: 'user1@test.com',
+#   password: '12345678',
+#   password_confirmation: '12345678',
+#   nickname: 'tarow',
+#   profile: 'テスト用ユーザーアカウント',
+#   family_name: '新宿',
+#   first_name: '太郎',
+#   family_name_kana: 'しんじゅく',
+#   first_name_kana: 'たろう',
+#   birth_day: '2020-08-01'
+#   )
+#   User.create!(
+#   email: 'user2@test.com',
+#   password: '12345678',
+#   password_confirmation: '12345678',
+#   nickname: 'tarow2',
+#   profile: 'テスト用ユーザーアカウント2',
+#   family_name: '渋谷',
+#   first_name: '太郎',
+#   family_name_kana: 'シブヤ',
+#   first_name_kana: 'タロ',
+#   birth_day: '2020-07-01'
+#   )
+#   User.create!(
+#   email: 'user3@test.com',
+#   password: '12345678',
+#   password_confirmation: '12345678',
+#   nickname: 'testman',
+#   profile: 'テスト用ユーザーアカウント3',
+#   family_name: '池袋',
+#   first_name: '太郎',
+#   family_name_kana: 'イケブクロ',
+#   first_name_kana: 'タロ',
+#   birth_day: '2020-06-01'
+#   )
 
 
 # # ダミーデータ（プロダクト）
