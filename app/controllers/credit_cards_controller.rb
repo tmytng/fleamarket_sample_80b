@@ -32,7 +32,9 @@ class CreditCardsController < ApplicationController
     @product = Product.find(params[:id])
     card = CreditCard.find_by(user_id: current_user.id)
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
-    if card.blank?
+    if @product.user_id == current_user.id || @product.trading_status
+      redirect_to root_path
+    elsif card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to action: "new"
     else
@@ -58,7 +60,6 @@ class CreditCardsController < ApplicationController
     @product.save
   redirect_to action: 'done'
   end
-
 
   def done
     @product = Product.find(params[:id])
