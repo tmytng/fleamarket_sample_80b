@@ -3,14 +3,7 @@ class CreditCardsController < ApplicationController
   require "payjp"
 
   def new
-    if user_signed_in?
-      render :new
-    else
-      redirect_to root_path
-    end
     @card = CreditCard.new
-    # card = CreditCard.where(user_id: current_user.id)
-    # redirect_to action: "show" if card.exists?
   end
 
 
