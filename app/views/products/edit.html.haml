@@ -14,7 +14,7 @@
               - @product.product_imgs.each do |image|
                 .preview-box
                   .upper-box
-                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                    = image_tag image.image.url(:thumb), alt: "preview",class: "img2"
                   .lower-box
                     .update-box
                       %label.edit-btn 編集

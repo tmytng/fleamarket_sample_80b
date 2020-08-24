@@ -112,7 +112,7 @@ $(document).on('turbolinks:load', function(){
         $(`#product_imgs_attributes_${id}_image`).val("");
         var count = $('.preview-box').length;
         //5個めが消されたらラベルを表示
-        if (count == 10) {
+        if (count == 9) {
           $('.label-content').show();
         }
         setLabel(count);
