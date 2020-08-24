@@ -2,6 +2,14 @@ class CreditCardsController < ApplicationController
   
   require "payjp"
 
+  before_action :authenticate_tosenbo
+
+  def authenticate_tosenbo
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
   def new
     @card = CreditCard.new
   end
@@ -34,7 +42,7 @@ class CreditCardsController < ApplicationController
       redirect_to root_path
     elsif card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to action: "new"
+      redirect_to user_path(current_user.id)
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       #保管した顧客IDでpayjpから情報取得
