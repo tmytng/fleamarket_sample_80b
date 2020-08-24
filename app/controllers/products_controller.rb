@@ -18,7 +18,7 @@ before_action :set_edit_category, only: [:edit]
         unless user_signed_in?
             redirect_to user_session_path
         else
-            render :create
+            render :new
         end
 
     end
