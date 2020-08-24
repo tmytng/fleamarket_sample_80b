@@ -33,24 +33,26 @@ before_action :set_edit_category, only: [:edit]
     end
 
     def edit
-      unless  @product.user_id == current_user.id
-        redirect_to root_path
+        unless user_signed_in? && @product.user_id == current_user.id 
+            redirect_to root_path
+        else
+            render :edit
+        end
     end
-  end
 
     def update
-      if @product.user_id == current_user.id && @product.update(product_params)
-        redirect_to root_path
+        if @product.user_id == current_user.id && @product.update(product_params)
+            redirect_to root_path
         else
-          render :edit
+            render :edit
         end
     end
 
     def destroy
-      if @product.user_id == current_user.id && @product.destroy
-        redirect_to root_path
-      else
-        redirect_to product_path(@product.id)
+        if @product.user_id == current_user.id && @product.destroy
+            redirect_to root_path
+        else
+            redirect_to product_path(@product.id)
         end
     end
 
