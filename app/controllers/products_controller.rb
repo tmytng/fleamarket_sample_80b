@@ -33,7 +33,10 @@ before_action :set_edit_category, only: [:edit]
     end
 
     def edit
-    end
+    #   unless  @product.user_id == current_user.id
+    #     redirect_to root_path
+    # end
+  end
 
     def update
       if @product.user_id == current_user.id && @product.update(product_params)
