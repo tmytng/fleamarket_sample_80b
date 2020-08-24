@@ -13,7 +13,7 @@
         .user_box__content
           .delivery_bar
             %p 配送先住所
-            = link_to "配送先住所の登録", new_delivery_destination_path,class: 'delivery_info'
+            = link_to "配送先住所の登録", new_delivery_destination_path, class: 'delivery_info'
           .address_bar
             - unless @delivery == nil
               .user_box__content--info
