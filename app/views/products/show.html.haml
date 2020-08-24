@@ -72,7 +72,10 @@
           - if @product.next.present?
             = link_to product_path(@product.next) do
               = "次の商品"
-      - if user_signed_in? && current_user.id != @product.user_id
+      - if @product.trading_status
+        .buy_box
+          = "この商品は売り切れました。"
+      - elsif user_signed_in? && current_user.id != @product.user_id
         .buy_box
           = link_to "購入する", product_credit_card_path(@product.id), class: "buy_btn"
       - elsif user_signed_in? && current_user.id == @product.user_id
