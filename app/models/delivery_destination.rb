@@ -64,4 +64,5 @@ class DeliveryDestination < ApplicationRecord
     kagoshima:  46,
     okinawa:    47
 }
+
 end

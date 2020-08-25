@@ -12,5 +12,5 @@ class User < ApplicationRecord
 # バリデーションの追加
   validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, :password, :password_confirmation, :email, presence: true
   validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, length: { maximum: 15 }
-
+  validates :nickname, uniqueness: true
 end
