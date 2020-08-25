@@ -16,6 +16,7 @@ before_action :set_edit_category, only: [:edit]
         @product.brands.build
         @parent = Category.where(id: 1..13)
         unless user_signed_in?
+            flash[:alert] = "ログインしていません"
             redirect_to user_session_path
         else
             render :new
@@ -26,9 +27,11 @@ before_action :set_edit_category, only: [:edit]
     def create
         @product = Product.new(product_params)
         if @product.save!
+            flash[:notice] = "出品が完了しました。"
             redirect_to root_path
         else
-            redirect_to new_product_path
+            flash[:alert] = "出品に失敗しました。"
+            render :new
         end
     end
 
@@ -47,6 +50,7 @@ before_action :set_edit_category, only: [:edit]
 
     def update
         if @product.user_id == current_user.id && @product.update(product_params)
+            flash[:notice] = "更新が完了しました。"
             redirect_to product_path(@product)
         else
             render :edit
@@ -55,6 +59,7 @@ before_action :set_edit_category, only: [:edit]
 
     def destroy
         if @product.user_id == current_user.id && @product.destroy
+            flash[:alert] = "商品は削除されました。"
             redirect_to root_path
         else
             redirect_to product_path(@product.id)
