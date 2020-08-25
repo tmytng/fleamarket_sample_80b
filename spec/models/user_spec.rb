@@ -7,6 +7,14 @@ describe User do
       expect(user).to be_valid
     end
 
+    it "nicknameは重複して登録できない" do
+      user = create(:user)
+      #先に登録したユーザーと同じnicknameの値を持つユーザーのインスタンスを作成
+      new_user = build(:user, nickname: user.nickname)
+      new_user.valid?
+      expect(new_user.errors[:nickname]).to include("はすでに存在します")
+    end
+
     it "ニックネームが空の場合登録ができない" do
       user = build(:user, nickname: nil)
       user.valid?

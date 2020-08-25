@@ -13,27 +13,22 @@
               - @product.product_imgs.each do |image|
                 .preview-box
                   .upper-box
-                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                    = image_tag image.image.url(:thumb), alt: "preview",class: "img2"
                   .lower-box
-                    .update-box
-                      %label.edit-btn 編集
                     .delete-box
                       .delete-btn
                         %span 削除
             .label-content
-
               //プレビューの数に合わせてforオプションを指定
-              = f.label :"product_imgs_attributes_#{@product.product_imgs.length}_image", class: "label-box", id: "label-box--#{@product.product_imgs.length}" do
+              = f.label :"imgs_attributes_#{@product.product_imgs.length}_image", class: "label-box", id: "label-box--#{@product.product_imgs.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :product_imgs do |image|
-
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = image.file_field :image, class: "hidden-field"
                 = image.check_box:_destroy, class: "hidden-checkbox"
-
                 //10個のfile_fieldを準備するに当たって、足りない分を表示
-              - @product.product_imgs.length.upto(10) do |i|
+              - @product.product_imgs.length.upto(9) do |i|
                 %input{name: "product[product_imgs_attributes][#{i}][image]", id: "product_imgs_attributes_#{i}_image", class:"hidden-field", type:"file"}
           .product-info
             .form-field
