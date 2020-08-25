@@ -32,7 +32,7 @@
           .family_name_kana
             = f.label :name, "都道府県"
             %span{class: "require"} 必須
-            = f.text_field :prefecture, class: 'form half_form', placeholder: '例：東京都'
+            = f.select :prefecture, DeliveryDestination.prefectures.keys.map {|k| [I18n.t("enums.delivery_destination.prefecture.#{k}"), k]}, {}
           .first_name_kana
             = f.label :name, "市区町村"
             %span{class: "require"} 必須
