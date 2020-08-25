@@ -16,7 +16,7 @@
             - if @delivery == nil
               = link_to "配送先住所の登録", new_delivery_destination_path, class: 'delivery_info'
             - else
-              = link_to "配送先住所の編集", edit_delivery_destination_path, class: 'delivery_info'
+              = link_to "配送先住所の編集", edit_delivery_destination_path(current_user.id), class: 'delivery_info'
           .address_bar
             - unless @delivery == nil
               .user_box__content--info
