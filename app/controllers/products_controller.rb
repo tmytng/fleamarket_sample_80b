@@ -47,7 +47,9 @@ before_action :set_edit_category, only: [:edit]
 
     def update
         if @product.user_id == current_user.id && @product.update(product_params)
+          
             redirect_to product_path(@product)
+
         else
             render :edit
         end
