@@ -15,6 +15,11 @@ before_action :set_edit_category, only: [:edit]
         @product.product_imgs.build
         @product.brands.build
         @parent = Category.where(id: 1..13)
+        unless user_signed_in?
+            redirect_to user_session_path
+        else
+            render :new
+        end
 
     end
 
@@ -33,11 +38,18 @@ before_action :set_edit_category, only: [:edit]
     end
 
     def edit
+        unless user_signed_in? && @product.user_id == current_user.id
+            redirect_to product_path(@product)
+        else
+            render :edit
+        end
     end
 
     def update
         if @product.user_id == current_user.id && @product.update(product_params)
-            redirect_to root_path
+          
+            redirect_to product_path(@product)
+
         else
             render :edit
         end
@@ -49,6 +61,10 @@ before_action :set_edit_category, only: [:edit]
         else
             redirect_to product_path(@product.id)
         end
+    end
+
+    def search
+      @products = Product.search(params[:keyword])
     end
 
     #jsonで親の名前で検索し、紐づく子カテゴリーの配列を取得
