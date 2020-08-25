@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   # デバイス用
   devise_for :users
-  resources :items 
+  resources :items
   root 'items#index'
   resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'search'
     end
     member do
       get 'get_category_children', defaults: { format: 'json' }
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   resources :credit_cards, only:[:new, :create, :index] do
     member do
       delete 'delete', to: 'credit_cards#delete'
