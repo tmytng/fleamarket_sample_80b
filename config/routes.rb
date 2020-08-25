@@ -27,6 +27,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
-  resources :delivery_destinations, only:[:new,:create]
+  resources :delivery_destinations, only:[:new, :create, :edit, :update]
 end
 

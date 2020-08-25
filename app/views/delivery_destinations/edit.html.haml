@@ -1,8 +1,8 @@
 .Form-main
   .From-box
-    = form_with model: @delivery_destination, local: true do |f|
+    = form_with model: @delivery, local: true do |f|
       .From-box__title
-        %h2{class: "delivery_title"} 配送先住所登録
+        %h2{class: "delivery_title"} 配送先住所変更
       .From-box__field
         .kana-box
           .family_name_kana
@@ -51,4 +51,4 @@
         %span{class: "require"} 必須
         = f.text_field :phone_number, class: 'form', placeholder: '例：09022221111(-なしで入力)'
       .From-box__btn
-        = f.submit value: '登録', class: 'signupBtn'
+        = f.submit value: '変更', class: 'signupBtn'

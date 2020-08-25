@@ -12,6 +12,16 @@ class DeliveryDestinationsController < ApplicationController
         end
     end
 
+    def edit
+        @delivery = DeliveryDestination.find(params[:id])
+    end
+
+    def update
+        @delivery = DeliveryDestination.find(params[:id])
+        @delivery.update(delivery_destination_params)
+        redirect_to root_path
+    end
+
     private
 
     def delivery_destination_params
