@@ -12,7 +12,7 @@ class CreateDeliveryDestinations < ActiveRecord::Migration[6.0]
       t.string :address, null: false
       t.string :buiding_name
       t.string :phone_number, null: false
-      t.timestamps 
+      t.timestamps
     end
   end
 end

@@ -25,6 +25,7 @@ span {
 
 .pcHeader {
   padding: 0 60px;
+  border-bottom: 1px solid lightgray;
 }
 .headerInner {
   max-width: 1040px;
@@ -203,33 +204,20 @@ span {
 .searchBox {
   margin-left: auto;
   width: 100%;
+  .search-form {
+    margin-bottom: 5px;
+    width: calc(100% - 70px);
+    height: 36px;
+    padding: 0 0 0 5px;
+  }
+  .search-btn {
+    width: 60px;
+    border: 0;
+    cursor: pointer;
+    background-color: #3CCACE;
+    padding: 8px;
+  }
 }
-
-.searchBox form {
-  width: 100%;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.searchBox form input {
-  width: calc(100% - 26px);
-  height: 36px;
-  padding: 0 0 0 5px;
-}
-
-.searchBox form button {
-  width: 36px;
-  border: 0;
-  cursor: pointer;
-  background-color: #3CCACE;
-  padding: 8px;
-}
-
-.searchBox form button:hover {
-  opacity: .9;
-  transition: 200ms;
-}
-
 // .main
 
 .main {

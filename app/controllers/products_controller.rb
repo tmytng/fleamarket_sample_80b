@@ -38,7 +38,7 @@ before_action :set_edit_category, only: [:edit]
     end
 
     def edit
-        unless user_signed_in? && @product.user_id == current_user.id 
+        unless user_signed_in? && @product.user_id == current_user.id
             redirect_to product_path(@product)
         else
             render :edit
@@ -59,6 +59,10 @@ before_action :set_edit_category, only: [:edit]
         else
             redirect_to product_path(@product.id)
         end
+    end
+
+    def search
+      @products = Product.search(params[:keyword])
     end
 
     #jsonで親の名前で検索し、紐づく子カテゴリーの配列を取得

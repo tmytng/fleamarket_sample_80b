@@ -5,12 +5,11 @@
         = link_to root_path do
           = image_tag 'logo/logo.png', alt: 'ロゴ'
       .searchBox
-        -# = form_with model: @product do |f|
-        -#   = f.hidden_field :カラム名, value: "✓"
-        -#   = f.text_field :name, class:'#', :placeholder => "メールアドレス", :type => "email", :value => ""
-        -#   = f.submit "検索する"
-            .searchBox__icon
-              = image_tag 'icon/icon-search1.png', alt: '検索'
+        = form_with url: search_products_path, method: :get  do |f|
+          = f.text_field :keyword, class:'search-form', placeholder: "商品を検索する"
+          = f.submit "検索", class: 'search-btn'
+          -# .searchBox__icon
+          -#   = image_tag '', alt: '検索'
       .resultLists
     .nav
       .listsLeft

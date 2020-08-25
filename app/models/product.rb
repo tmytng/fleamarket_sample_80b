@@ -93,4 +93,12 @@ class Product < ApplicationRecord
     def next
       Product.where("id > ?", self.id).order("id ASC").first
     end
+
+    def self.search(search)
+      if search != ""
+        Product.where('text LIKE(?)', "%#{search}%")
+      else
+        Product.all
+      end
+    end
 end
