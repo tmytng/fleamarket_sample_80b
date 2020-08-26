@@ -1,4 +1,4 @@
-.Form-main{
+.FormMain{
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.From-box{
+.FormBox{
   display: flex;
   justify-content: center;
   width: 60%;
@@ -33,11 +33,11 @@
   margin-bottom: 5px;
 }
 
-.first_name{
+.firstName{
   margin-left: 15px;
 }
 
-.first_name_kana{
+.firstNameNana{
   margin-left: 15px;
 }
 
@@ -61,10 +61,10 @@
   border-radius: 10%;
 }
 
-.name-box {
+.nameBox {
   display: flex;
 }
 
-.kana-box{
+.kanaBox{
   display: flex;
 }
