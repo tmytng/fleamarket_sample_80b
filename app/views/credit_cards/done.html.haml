@@ -6,6 +6,6 @@
       = @product.name
     %p{class: "product_price pay_content"}
       -# 10000円
-      = @product.price
+      = "#{@product.price}円"
     .back_show
-      = link_to "マイページに戻る", user_path
+      = link_to "トップページに戻る", root_path
