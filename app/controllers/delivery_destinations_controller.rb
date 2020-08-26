@@ -1,4 +1,7 @@
 class DeliveryDestinationsController < ApplicationController
+    
+    before_action :set_delivery, only: [:edit,:update]
+    
     def new
         @delivery_destination = DeliveryDestination.new
     end
@@ -13,20 +16,29 @@ class DeliveryDestinationsController < ApplicationController
     end
 
     def edit
-        @delivery = DeliveryDestination.find(params[:id])
+        unless user_signed_in? && @delivery.user_id == current_user.id
+            redirect_to root_path
+        else
+            render :edit
+        end
     end
 
     def update
-        @delivery = DeliveryDestination.find(params[:id])
-        @delivery.update(delivery_destination_params)
-        redirect_to root_path
+        if @delivery.user_id == current_user.id && @delivery.update(delivery_destination_params)
+            flash[:notice] = "更新が完了しました。"
+            redirect_to root_path
+        else
+            render :edit
+        end
     end
 
     private
 
     def delivery_destination_params
         params.require(:delivery_destination).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :post_code, :prefecture, :city, :address, :buiding_name, :phone_number).merge(user_id: current_user.id)
-        # 複数テーブルの情報を一つのフォームから送る時↓
-        # params.require(:user).permit(:nickname, :user_image, :profile, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, delivery_destination_attributes:[:post_code, :prefecture, :city, :address, :building_name, :phone_number])
+    end
+
+    def set_delivery
+        @delivery = DeliveryDestination.find(params[:id])
     end
 end
