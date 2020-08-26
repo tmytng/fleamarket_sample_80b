@@ -9,6 +9,7 @@ class DeliveryDestinationsController < ApplicationController
     def create
         @delivery_destination = DeliveryDestination.new(delivery_destination_params)
         if @delivery_destination.save
+            flash[:notice] = "登録が完了しました。"
             redirect_to root_path
         else
             render :new
