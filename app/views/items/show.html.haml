@@ -1,10 +1,8 @@
-%h1 ここはitems/show.html。
-%h2 本来のリンク先は以下の通りになる予定
-
-%p FURIMAカテゴリー一覧 (categories/index)
-%br
-レディース (categories/show)
-%br
-トップス(subcategories/show)
-%br
-シャツ/ブラウス(半袖/袖なし) (items/show || products/show)
+.main
+  .showMain
+    .contentRight
+      .topContent
+        .itemBox
+          %h2.itemBox__name
+            = @category.name
+= render "layouts/appBanner"
