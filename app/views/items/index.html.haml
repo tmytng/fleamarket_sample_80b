@@ -77,11 +77,11 @@
         %p.item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   %section.pickupContainer
-    %h2.head2 ピックアップカテゴリー
+    %h2.head2 新着商品一覧
     .productBox
       .productHead
         = link_to "#" do
-          %h3.title 新規投稿商品
+          %h3.title 最新5件
       .productLists
         - @products.each do |product|
           = render partial: "product", locals: { product: product }
