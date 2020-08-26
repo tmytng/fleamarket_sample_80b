@@ -1,39 +1,37 @@
 %link{:href => "show.scss", :rel => "stylesheet"}/
 %body
-  .Main_wrapper
-    .Main_container
+  .MainWrapper
+    .MainContainer
       .Information
         マイページ
-      .Secondary_content
-        .Secondary_content__inner
-          = image_tag "pict/member_photo_noimage_thumb.png", alt: "icon", class: "profile"
-        .user_name
+      .SecondaryContent
+        .userName
           = @nickname
-      .user_box
-        .user_box__content
-          .delivery_bar
+      .userBox
+        .userBox__content
+          .deliveryBar
             %p 配送先住所
             - if @delivery == nil
-              = link_to "配送先住所の登録", new_delivery_destination_path, class: 'delivery_info'
+              = link_to "配送先住所の登録", new_delivery_destination_path, class: 'deliveryInfo'
             - else
-              = link_to "配送先住所の編集", edit_delivery_destination_path(current_user.id), class: 'delivery_info'
-          .address_bar
+              = link_to "配送先住所の編集", edit_delivery_destination_path(@delivery), class: 'deliveryInfo'
+          .addressBar
             - unless @delivery == nil
-              .user_box__content--info
+              .userBox__content--info
                 = @delivery.prefecture_i18n
                 = @delivery.city
                 = @delivery.address
                 = @delivery.buiding_name
-        .user_box__content
+        .userBox__content
           出品商品履歴
           - @products.each do |product|
-            .product_bar
-              .product_bar__name
+            .productBar
+              .productBar__name
                 = product.name
-              .product_bar__info
+              .productBar__info
                 = link_to "詳細", product_path(product.id)
-      .card_box
-        .card_pages
+      .cardBox
+        .cardPages
           = link_to "クレジットカードの登録", new_credit_card_path, data: {"turbolinks" => false}
-        .card_pages
+        .cardPages
           = link_to "クレジットカードの削除", credit_cards_path
