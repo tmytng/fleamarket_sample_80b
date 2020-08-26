@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  before_action :set_parents
 
   def new
     @children = Category.find(params[:parent_id]).children
@@ -14,10 +13,8 @@ class ItemsController < ApplicationController
     @brands =  Brand.where(name:"agete").order(created_at: :desc).limit(5)
   end
 
-
-  def set_parents
-    @parents = Category.where(ancestry: nil)
+  def show
+    @category = Category.find(params[:id])
   end
-end
 
-# home.controller.rbへ改称予定
+end
