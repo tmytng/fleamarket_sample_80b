@@ -29,7 +29,7 @@
       .listsRight
         - if user_signed_in?
           .listsRight__item.listsRight__item--logout
-          = link_to "マイページ", "/users/#{current_user.id}", class: "right_contents"
+          = link_to "マイページ", user_path(current_user), class: "right_contents"
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "right_contents"
         - else
           .listsRight__item.listsRight__item--login
