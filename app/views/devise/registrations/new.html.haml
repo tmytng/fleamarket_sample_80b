@@ -1,54 +1,51 @@
 .signinHeader
-.Form-main
-  .From-box
+.FormMain
+  .FormBox
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
-      .From-box__title
+      .FormBox__title
         新規会員登録
-      .From-box__field
+      .FormBox__field
         ニックネーム
         %span{class: "require"} 必須
         = f.text_field :nickname, class: 'form', placeholder: '例：フリママン'
-      .From-box__field
+      .FormBox__field
         メールアドレス
         %span{class: "require"} 必須
         = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form', placeholder: '例：◯◯◯◯◯◯@◯◯◯◯◯◯'
-      .From-box__field
+      .FormBox__field
         パスワード
         %span{class: "require"} 必須
         - if @minimum_password_length
           = f.password_field :password, autocomplete: "new-password", class: 'form', placeholder: '7文字以上'
-      .From-box__field
+      .FormBox__field
         パスワード(確認用)
         %span{class: "require"} 必須
         = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form', placeholder: '上記と同じパスワードを入力して下さい'
-      .From-box__field
-        アイコン画像
-        = f.file_field :user_image, class: 'form'
-      .From-box__field
+      .FormBox__field
         自己紹介
         %span{class: "require"} 必須
         = f.text_field :profile, class: 'form', placeholder: '例：こんにちは！'
-      .From-box__field
+      .FormBox__field
         お名前(全角)
         %span{class: "require"} 必須
-        .name-box
-          .family_name
+        .nameBox
+          .familyName
             = f.text_field :family_name, class: 'form', placeholder: '例：山田'
-          .first_name
+          .firstName
             = f.text_field :first_name, class: 'form', placeholder: '例：太郎'
-      .From-box__field
+      .FormBox__field
         お名前カナ(全角)
         %span{class: "require"} 必須
-        .kana-box
-          .family_name_kana
+        .kanaBox
+          .familyNameKana
             = f.text_field :family_name_kana, class: 'form', placeholder: '例：ヤマダ'
-          .first_name_kana
+          .firstNameKana
             = f.text_field :first_name_kana, class: 'form', placeholder: '例：タロウ'
-      .From-box__field
+      .FormBox__field
         生年月日
         %span{class: "require"} 必須
-      .From-box__field
+      .FormBox__field
         = f.date_select :birth_day, class: 'form', use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
-      .From-box__btn
+      .FormBox__btn
         = f.submit value: '登録', class: 'signupBtn'
