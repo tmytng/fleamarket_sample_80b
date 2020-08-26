@@ -13,6 +13,7 @@ class DeliveryDestination < ApplicationRecord
   validates :city, presence: true
   validates :address, presence: true
   validates :phone_number, format: { with: VALID_PHONE_REGEX, message: 'は有効でありません。'}
+  validates :prefecture, exclusion: { in: ["---"] }
 
   enum prefecture:{
     '---':       0,

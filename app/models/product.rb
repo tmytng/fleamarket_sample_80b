@@ -7,10 +7,12 @@ class Product < ApplicationRecord
     accepts_nested_attributes_for :product_imgs, limit: 10, allow_destroy: true
     accepts_nested_attributes_for :brands
 
-    validates :name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :user_id,:category_id, :product_imgs, presence: true
+    validates :name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :user_id,:category_id,  presence: true
+    # validates :trading_status,  presence: true
     validates :name, length: { maximum: 40 }
     validates :description, length: {maximum: 1000}
-    validates :price, numericality: { only_integr: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    validates :price, numericality: { only_integer: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    validates :condition, :shipping_cost, :shipping_days, :prefecture, exclusion: { in: ["---"] }
 
     enum condition:{
         '---':           0, #---
@@ -94,11 +96,6 @@ class Product < ApplicationRecord
       Product.where("id > ?", self.id).order("id ASC").first
     end
 
-    def self.search(search)
-      if search != ""
-        Product.where('text LIKE(?)', "%#{search}%")
-      else
-        Product.all
-      end
-    end
-end
+  end
+
+# for check
