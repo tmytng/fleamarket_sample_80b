@@ -1,0 +1,14 @@
+.productList
+  = link_to "/products/#{brand.id}" do
+    %figure.productList--img
+      = image_tag brand.product.product_imgs[0].image.url, alt: 'no image'
+    .productList--body
+      = brand.product.name
+      .details
+        %ul
+          %li= "#{brand.product.price}円"
+        %p (税込)
+        - if brand.product.trading_status
+          .items-box_photo__sold
+            .items-box_photo__sold__inner
+              SOLD
