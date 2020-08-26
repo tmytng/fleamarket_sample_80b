@@ -90,7 +90,7 @@
     .productBox
       .productHead
         = link_to "#" do
-          %h3.title "agete"
+          %h3.title agete
       .productLists
         - @brands.each do |brand|
           = render partial: "brand", locals: { brand: brand }
