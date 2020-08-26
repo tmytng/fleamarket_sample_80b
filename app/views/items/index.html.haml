@@ -85,20 +85,6 @@
       .productLists
         - @products.each do |product|
           = render partial: "product", locals: { product: product }
-          -# .productList
-          -#   = link_to "/products/#{product.id}" do
-          -#     %figure.productList--img
-          -#       = image_tag product.product_imgs[0].image.url, alt: 'no image'
-          -#     .productList--body
-          -#       = product.name
-          -#       .details
-          -#         %ul
-          -#           %li= "#{product.price}円"
-          -#         %p (税込)
-          -#         - if product.trading_status
-          -#           .items-box_photo__sold
-          -#             .items-box_photo__sold__inner
-          -#               SOLD
   %section.pickupContainer
     %h2.head2 ピックアップブランド
     .productBox
@@ -108,18 +94,4 @@
       .productLists
         - @brands.each do |brand|
           = render partial: "brand", locals: { brand: brand }
-          -# .productList
-          -#   = link_to "/products/#{brand.id}" do
-          -#     %figure.productList--img
-          -#       = image_tag brand.product.product_imgs[0].image.url, alt: 'no image'
-          -#     .productList--body
-          -#       = brand.product.name
-          -#       .details
-          -#         %ul
-          -#           %li= "#{brand.product.price}円"
-          -#         %p (税込)
-          -#         - if brand.product.trading_status
-          -#           .items-box_photo__sold
-          -#             .items-box_photo__sold__inner
-          -#               SOLD
 = render "layouts/appBanner"
