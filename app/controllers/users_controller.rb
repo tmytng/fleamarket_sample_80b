@@ -25,9 +25,15 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @nickname = current_user.nickname
     @products = current_user.products
     @delivery = current_user.delivery_destination
+    unless user_signed_in? && @user.id == current_user.id
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private
