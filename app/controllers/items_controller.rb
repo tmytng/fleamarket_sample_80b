@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @products =  Product.where(category_id: [159..356]).order(created_at: :desc).limit(5)
-    @brands =  Brand.where(name:"agete").order(created_at: :desc).limit(5)
+    @products =  Product.order(created_at: :desc).limit(5)
+    @brands =  Brand.where(name:"フリマ").order(created_at: :desc).limit(5)
   end
 
   def show
