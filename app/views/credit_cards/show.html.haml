@@ -1,10 +1,10 @@
 .Pay_main
   .Pay_main__box
     %p{class: "pay_question pay_content"} 購入を確定しますか？
-    %p{class: "product_name pay_content"} 
+    %p{class: "product_name pay_content"}
       = @product.name
-    %p{class: "product_price pay_content"} 
-      = @product.price
+    %p{class: "product_price pay_content"}
+      = "#{@product.price}円"
     %br
     %p{class: "pay_title pay_content"} 支払い方法
     - if @default_card_information.blank?
