@@ -103,7 +103,7 @@ before_action :set_edit_category, only: [:edit]
                 :size, :shipping_cost, :shipping_days,
                 :prefecture, :trading_status,
                 :category_id,
-                product_imgs_attributes: [:image, :image_cache, :id],
+                product_imgs_attributes: [:image, :image_cache,:_destroy, :id],
                 brands_attributes: [:name, :id]
             )
             .merge(user_id: current_user.id)

@@ -99,6 +99,7 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
+      $(`#product_product_imgs_attributes_${id}__destroy`).prop('checked',true);
 
       //新規登録時と編集時の場合分け==========================================================
 
@@ -120,7 +121,7 @@ $(document).on('turbolinks:load', function(){
       } else {
 
         //投稿編集時
-        $(`#product_imgs_attributes_${id}__destroy`).prop('checked',true);
+        // $(`#product_imgs_attributes_${id}__destroy`).prop('checked',true);
         //10個めが消されたらラベルを表示
         if (count == 9) {
           $('.label-content').show();

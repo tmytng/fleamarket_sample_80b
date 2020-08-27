@@ -26,10 +26,12 @@
               = f.fields_for :product_imgs do |image|
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = image.file_field :image, class: "hidden-field"
+                1個目の画像編集用フォームです
                 = image.check_box:_destroy, class: "hidden-checkbox"
                 //10個のfile_fieldを準備するに当たって、足りない分を表示
               - @product.product_imgs.length.upto(9) do |i|
                 %input{name: "product[product_imgs_attributes][#{i}][image]", id: "product_imgs_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                #{i + 1}個目の画像編集用フォームです
           .product-info
             .form-field
               = f.label :name, "商品名", class: "label-text"
