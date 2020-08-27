@@ -1,7 +1,7 @@
 .productList
   = link_to "/products/#{product.id}" do
     %figure.productList--img
-      = image_tag product.product_imgs[0].image.url, alt: 'no image'
+      = image_tag product.product_imgs[0].image.url
     .productList--body
       = product.name
       .details
