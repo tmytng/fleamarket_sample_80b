@@ -5,7 +5,7 @@ class Product < ApplicationRecord
     has_many :brands, dependent: :destroy
     belongs_to :user
     accepts_nested_attributes_for :product_imgs, limit: 10, allow_destroy: true
-    accepts_nested_attributes_for :brands
+    accepts_nested_attributes_for :brands, allow_destroy: true
 
     validates :name, :price, :description, :condition, :size, :shipping_cost, :shipping_days, :prefecture, :user_id,:category_id,  presence: true
     # validates :trading_status,  presence: true
