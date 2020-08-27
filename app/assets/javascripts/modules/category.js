@@ -1,10 +1,10 @@
 $(function () {
   // カテゴリボタンのマウスオーバー時の表示
   // 表示のUI向上のためには表示系の制御をかける必要あり
-  $('.categoryBtn').mouseenter(function () {
+  $('.categoryBtn').mouseover(function () {
     $('.categoryField').removeClass("displayNone");
   })
-  $('.categoryBtn').mouseleave(function () {
+  $('.categoryBtn').mouseout(function () {
     $('.categoryField').addClass("displayNone");
   })
   // 子カテゴリー追加

@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", sans-serif;
 }
 html {
   color: #000;
@@ -116,7 +116,7 @@ span {
   position: absolute;
   background-color: #fff;
   width: 240px;
-  top: 40px;
+  top: 32px;
   }
 
 .displayNone {
@@ -192,9 +192,6 @@ span {
         width: 26px;
         margin-right: 8px;
       }
-      &--logout {}
-      &--login{}
-      &--new{}
     }
   }
 }
@@ -466,8 +463,8 @@ span {
 
 .productBox .productLists .productList {
   width: 220px;
-  display: inline-block;
-  float: left
+  display: block;
+  float: left;
 }
 
 .productBox .productLists .productList .productList--img {
@@ -476,7 +473,7 @@ span {
   position: relative;
   overflow: hidden;
   margin: 0;
-  z-index: auto
+  z-index: auto;
 }
 
 .productBox .productLists .productList .productList--body {
