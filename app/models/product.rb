@@ -13,6 +13,7 @@ class Product < ApplicationRecord
     validates :description, length: {maximum: 1000}
     validates :price, numericality: { only_integer: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
     validates :condition, :shipping_cost, :shipping_days, :prefecture, exclusion: { in: ["---"] }
+    validates :category_id, presence: true, exclusion: { in: 1..158 }
 
     enum condition:{
         '---':           0, #---
