@@ -4,6 +4,8 @@ $(function () {
   $('.categoryBtn').mouseover(function () {
     $('.categoryField').removeClass("displayNone");
   })
+  $(".childCategory").remove();
+  $(".grandChildCategory").remove();
   $('.categoryBtn').mouseout(function () {
     $('.categoryField').addClass("displayNone");
   })

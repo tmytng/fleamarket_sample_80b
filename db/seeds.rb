@@ -355,117 +355,43 @@ g = 0
     end
 end
 
-# # # ダミーデータ（ユーザー）
+# # ダミーデータ（ユーザー）
 
-# p "create Users"
-#   User.create!(
-#   email: 'user1@test.com',
-#   password: '12345678',
-#   password_confirmation: '12345678',
-#   nickname: 'tarow',
-#   profile: 'テスト用ユーザーアカウント',
-#   family_name: '新宿',
-#   first_name: '太郎',
-#   family_name_kana: 'しんじゅく',
-#   first_name_kana: 'たろう',
-#   birth_day: '2020-08-01'
-#   )
-#   User.create!(
-#   email: 'user2@test.com',
-#   password: '12345678',
-#   password_confirmation: '12345678',
-#   nickname: 'tarow2',
-#   profile: 'テスト用ユーザーアカウント2',
-#   family_name: '渋谷',
-#   first_name: '太郎',
-#   family_name_kana: 'シブヤ',
-#   first_name_kana: 'タロ',
-#   birth_day: '2020-07-01'
-#   )
-#   User.create!(
-#   email: 'user3@test.com',
-#   password: '12345678',
-#   password_confirmation: '12345678',
-#   nickname: 'testman',
-#   profile: 'テスト用ユーザーアカウント3',
-#   family_name: '池袋',
-#   first_name: '太郎',
-#   family_name_kana: 'イケブクロ',
-#   first_name_kana: 'タロ',
-#   birth_day: '2020-06-01'
-#   )
+p "create Users"
+  User.create!(
+  email: 'user1@test.com',
+  password: '12345678',
+  password_confirmation: '12345678',
+  nickname: 'tarow',
+  profile: 'テスト用ユーザーアカウント',
+  family_name: '新宿',
+  first_name: '太郎',
+  family_name_kana: 'しんじゅく',
+  first_name_kana: 'たろう',
+  birth_day: '2020-08-01'
+  )
+  User.create!(
+  email: 'user2@test.com',
+  password: '12345678',
+  password_confirmation: '12345678',
+  nickname: 'tarow2',
+  profile: 'テスト用ユーザーアカウント2',
+  family_name: '渋谷',
+  first_name: '太郎',
+  family_name_kana: 'シブヤ',
+  first_name_kana: 'タロ',
+  birth_day: '2020-07-01'
+  )
+  User.create!(
+  email: 'user3@test.com',
+  password: '12345678',
+  password_confirmation: '12345678',
+  nickname: 'testman',
+  profile: 'テスト用ユーザーアカウント3',
+  family_name: '池袋',
+  first_name: '太郎',
+  family_name_kana: 'イケブクロ',
+  first_name_kana: 'タロ',
+  birth_day: '2020-06-01'
+  )
 
-
-# # ダミーデータ（プロダクト）
-
-#   p "Create Products"
-#   Product.create!(
-#     name: 'テスト商品1',
-#     price: '5000',
-#     description: 'テスト登録です。',
-#     condition: 1,
-#     size: 'L',
-#     shipping_cost: 1,
-#     shipping_days: 1,
-#     prefecture: 36,
-#     trading_status: "false",
-#     brand_id: nil,
-#     user_id: 1,
-#     category_id: 164
-#     )
-#   Product.create!(
-#     name: 'テスト商品2',
-#     price: '100000',
-#     description: 'テスト登録2です。',
-#     condition: 2,
-#     size: 'S',
-#     shipping_cost: 2,
-#     shipping_days: 2,
-#     prefecture: 45,
-#     trading_status: "false",
-#     brand_id: nil,
-#     user_id: 1,
-#     category_id: 231
-#     )
-#   Product.create!(
-#     name: 'テスト商品3',
-#     price: '5000',
-#     description: 'テスト登録3です。',
-#     condition: 2,
-#     size: 'L',
-#     shipping_cost: 2,
-#     shipping_days: 2,
-#     prefecture: 5,
-#     trading_status: "false",
-#     brand_id: nil,
-#     user_id: 1,
-#     category_id: 427
-#     )
-#   Product.create!(
-#     name: 'テスト商品4',
-#     price: '89000',
-#     description: 'テスト登録4です。',
-#     condition: 2,
-#     size: 'L',
-#     shipping_cost: 2,
-#     shipping_days: 2,
-#     prefecture: 8,
-#     trading_status: "false",
-#     brand_id: nil,
-#     user_id: 1,
-#     category_id: 663
-#     )
-#   Product.create!(
-#     name: 'テスト商品5',
-#     price: '12000',
-#     description: 'テスト登録5です。',
-#     condition: 2,
-#     size: 'S',
-#     shipping_cost: 2,
-#     shipping_days: 2,
-#     prefecture: 12,
-#     trading_status: "false",
-#     brand_id: nil,
-#     user_id: 1,
-#     category_id: 980
-#     )
