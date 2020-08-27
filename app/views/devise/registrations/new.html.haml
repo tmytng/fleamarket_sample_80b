@@ -24,7 +24,6 @@
         = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form', placeholder: '上記と同じパスワードを入力して下さい'
       .FormBox__field
         自己紹介
-        %span{class: "require"} 必須
         = f.text_field :profile, class: 'form', placeholder: '例：こんにちは！'
       .FormBox__field
         お名前(全角)
