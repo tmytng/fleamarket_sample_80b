@@ -97,8 +97,9 @@ $(document).on('turbolinks:load', function(){
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       setLabel(count);
-      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      var id = $(this).data('index')
       $(`#preview-box__${id}`).remove();
+      $(this).remove();
       $(`#product_product_imgs_attributes_${id}__destroy`).prop('checked',true);
 
       //新規登録時と編集時の場合分け==========================================================
