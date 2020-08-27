@@ -56,8 +56,8 @@
               = f.text_field :size, placeholder:"サイズを入力してください", class: "textform_bl"
             .form-field
               = f.label :name, "ブランド", class: "label-text"
-              = f.fields_for :brands, {} do |b|
-                = b.text_field :name, {}
+              = f.fields_for :brands do |b|
+                = b.text_field :name, class: "textform_bl"
             .form-field
               = f.label :name, "商品の状態", class: "label-text"
               %span 必須
