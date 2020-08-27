@@ -6,7 +6,7 @@
           .uploader-info
             .form-field
               = f.label :name, "出品画像", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               .information 最大10枚までアップロードできます。
               %ul
                 //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
@@ -33,17 +33,17 @@
           .product-info
             .form-field
               = f.label :name, "商品名", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.text_field :name, placeholder: "商品名 (必須40文字まで)", id: "productr_name", class: "textform_bl"
             .form-field
               = f.label :name, "商品説明", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.text_area :description, size: "73x7", placeholder: "商品の説明（必須1,000文字以内 (色、素材、重さ、定価、注意点など)", id: "product_introduction", class: "textarea_bl"
           .product-description
             %h2 商品の詳細
             .form-field
               = f.label :name, "カテゴリー", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
             .categoly_form#partent_box
               = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}, selected: @product.category.parent.parent.id),{}, { class: "parent_category_box selectform_bl", id: "parent_category"}
             #children_box
@@ -52,7 +52,7 @@
               = f.select :category_id, options_for_select( @category_grandchildren_array.map{|c| [c[:name], c[:id]]}, selected: @product.category),{}, { class: "grandchildren_category_box selectform_bl", id: "grandchildren_category"}
             .form-field
               = f.label :name, "商品サイズ", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.text_field :size, placeholder:"サイズを入力してください", class: "textform_bl"
             .form-field
               = f.label :name, "ブランド", class: "label-text"
@@ -60,28 +60,27 @@
                 = b.text_field :name, class: "textform_bl"
             .form-field
               = f.label :name, "商品の状態", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.select :condition, Product.conditions.keys.map {|k| [I18n.t("enums.product.condition.#{k}"), k]}, {}, { class: "selectform_bl"}
           .shipping-info
             %h2 配送について
             .form-field
               = f.label :name, "配送料の負担", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.select :shipping_cost, Product.shipping_costs.keys.map {|k| [I18n.t("enums.product.shipping_cost.#{k}"), k]}, {}, { class: "selectform_bl"}
             .form-field
               = f.label :name, "発送元の地域", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.select :prefecture, Product.prefectures.keys.map {|k| [I18n.t("enums.product.prefecture.#{k}"), k]}, {}, { class: "selectform_bl"}
             .form-field
               = f.label :name, "発送までの日数", class: "label-text"
-              %span 必須
+              %span{class: "require"} 必須
               = f.select :shipping_days,Product.shipping_days.keys.map {|k| [I18n.t("enums.product.shipping_days.#{k}"), k]},{}, { class: "selectform_bl"}
           .price-info
             %h2 価格（¥300〜9,999,999）
             .form-field
               = f.label :name, "販売価格", class: "label-text"
-              %span 必須
-              %span ¥
+              %span{class: "require"} 必須
               = f.text_field :price, id: "pricebox", placeholder: "例） 300", class: "textform_bl"
             .price-info__calc
               販売手数料（10%）
